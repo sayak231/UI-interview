@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  height: 30px;
+  width: 500px;
+  margin: 0 10px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  height: 100px;
+  width: 580px;
+  background-color: white !important;
+  border: 1px solid black;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
