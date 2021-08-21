@@ -1,0 +1,114 @@
+.headers {
+  text-align: center;
+}
+
+#search-box,
+#sort-by,
+#filter-by {
+  width: 400px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 400px;
+  height: fit-content;
+  margin: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-img {
+  width: 100%;
+}
+
+#fav {
+  cursor: pointer;
+  width: 400px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.fav {
+  height: 20px;
+  width: 50px;
+  cursor: pointer;
+  float: right;
+}
+
+.fav-true {
+  background-color: gold;
+}
+
+.fav-false {
+  background-color: grey;
+}
+
+.pagination {
+  max-width: 400px;
+  min-width: 300px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  background-color: lightgreen;
+  padding: 20px;
+}
+.pagination .tableList {
+  min-height: 250px;
+  text-indent: 20px;
+}
+.tableList .objectBlock {
+  position: relative;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.pageButton {
+  border: 1px solid black;
+  padding: 5px;
+}
+.clickPageNumber {
+  background-color: lightgrey;
+  padding: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.pagination-block {
+  text-align: center;
+  width: 100%;
+}
+.pagination-block span {
+  display: inline-block;
+}
+.pagination-block .pageButton {
+  background-color: grey;
+  color: white;
+}
+.pagination-block span:hover {
+  cursor: pointer;
+}
+.opacity {
+  opacity: 0.5;
+}
+.outline-none {
+  outline: none;
+  user-select: none;
+}
