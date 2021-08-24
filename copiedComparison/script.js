@@ -115,13 +115,7 @@ const render = () => {
   renderFeatures();
   renderProducts();
   addClickHandlers();
-  // let finalObj1 = {};
-  // let finalObj2 = {};
-  // magic(compareSummary, "user", finalObj1);
-  // magic(featuresList[0], "user", finalObj2);
 
   console.log(flatten(compareSummary, "user"));
-  console.log(flatten(featuresList[0], "user"));
-  console.log(flatten(featuresList[1], "user"));
-  console.log(flatten(featuresList[2], "user"));
+  console.log(flatten(featuresList, "user"));
 };
