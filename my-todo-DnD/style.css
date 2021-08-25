@@ -1,0 +1,25 @@
+#container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.status-wrapper {
+  width: 200px;
+  height: fit-content;
+  border: 1px solid black;
+}
+.status-header {
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.status-tasks-container {
+  width: 80%;
+  min-height: 250px;
+  height: fit-content;
+  margin: 0 auto;
+}
+.task-wrapper {
+  margin: 10px 0;
+  border: 1px solid black;
+}
