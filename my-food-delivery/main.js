@@ -41,13 +41,22 @@ const searchRestaurants = (list, favourites) => {
   generateView(searchedList, favourites);
 };
 
-function debounce(fn, wait) {
-  let t;
-  return function () {
-    clearTimeout(t);
-    t = setTimeout(() => fn.apply(this, arguments), wait);
+// function debounce(fn, wait) {
+//   let t;
+//   return function () {
+//     clearTimeout(t);
+//     t = setTimeout(() => fn.apply(this, arguments), wait);
+//   };
+// }
+
+const debounce = (func, delay) => {
+  let timerId;
+  return (...args) => {
+    const boundFunc = func.bind(this, ...args);
+    clearTimeout(timerId);
+    timerId = setTimeout(boundFunc, delay);
   };
-}
+};
 
 const debouncedSearch = debounce(searchRestaurants, 300);
 
