@@ -12,6 +12,23 @@
 
 //---------------------------------------------------
 
+// const flatten = (obj, parent) => {
+//   const finalObj = {};
+//   const magic = (obj, parent, finalObj) => {
+//     for (let key in obj) {
+//       if (typeof obj[key] === "object") {
+//         magic(obj[key], parent + "_" + key, finalObj);
+//       } else {
+//         finalObj[parent + "_" + key] = obj[key];
+//       }
+//     }
+//   };
+//   magic(obj, parent, finalObj);
+//   return finalObj;
+// };
+
+//---------------------------------------------------
+
 // function Person(name, age) {
 //   this.name = name;
 //   this.age = age;
