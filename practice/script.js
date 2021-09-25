@@ -680,3 +680,198 @@ console.log("%cThis webpage is for Practice", "color:green; font-size:20px");
 // the developer will assess factors such as the scale of the project, the complexity of the application, the number of users, and user experience priorities.
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Asynchronous to synchronous function
+
+// function AsyncRequest(k) {
+//   return new Promise(function (resolve, reject) {
+//     if (k < 3) {
+//       resolve(k);
+//     } else {
+//       reject("Error");
+//     }
+//   });
+// }
+
+// function normal() {
+//   let data;
+//   AsyncRequest(2).then((res) => {
+//     console.log(res);
+//     data = res;
+//   });
+//   console.log(data);
+// }
+// normal();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// use of await other than Promises
+
+// const thenable = {
+//   then: function (resolve, reject) {
+//     setTimeout(() => resolve(5), 100);
+//   },
+// };
+
+// const value = async () => {
+//   const val = await thenable;
+//   console.log(val);
+//   return val;
+// };
+
+// from mdn docs
+// async function f2() {
+//   const thenable = {
+//     then: function (resolve, _reject) {
+//       resolve("resolved!");
+//     },
+//   };
+//   console.log(await thenable); // resolved!
+// }
+
+// f2();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// proof that arrow functions always point to global variables and there is no this variable for arrow functions
+// const a = 32;
+// const data = {
+//   a: 2,
+//   anonymous: function () {
+//     // [32, 2]
+//     return [a, this.a];
+//   },
+//   arrow: () => {
+//     // [32, undefined]
+//     return [a, this.a];
+//   },
+//   v: {
+//     anonymous: function () {
+//       // [32, undefined]
+//       return [a, this.a];
+//     },
+//     arrow: () => {
+//       // [32, undefined]
+//       return [a, this.a];
+//     },
+//   },
+// };
+// console.log(data.anonymous());
+// console.log(data.arrow());
+// console.log(data.v.anonymous());
+// console.log(data.v.arrow());
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// But here closure is formed with the parent
+// const a = 32;
+
+// function express() {
+//   const a = 22;
+//   const nest = () => {
+//     console.log(a, this.a);
+//   };
+//   console.log(a, this.a);
+//   nest();
+// }
+// express();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// sleep function
+// function sleep(k, ms) {
+//   return new Promise((res) => {
+//     setTimeout(() => {
+//       console.log("sleep timeout");
+//       res(k);
+//     }, ms);
+//   });
+// }
+// console.log(sleep(5, 5000));
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// The finally block doesn’t receive any value, and anything returned from finally is not considered in the then block so the output from the last then is used.
+
+// const promise = new Promise((res) => res(2));
+// promise
+//   .then((v) => {
+//     console.log(v);
+//     return v * 2;
+//   })
+//   .then((v) => {
+//     console.log(v);
+//     return v * 2;
+//   })
+//   .finally((v) => {
+//     console.log(v);
+//     return v * 2;
+//   })
+//   .then((v) => {
+//     console.log(v);
+//   });
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Tricky interview ques
+//1.
+
+// (function apple() {
+//   const arr = [1, 2, 3, 4, 5];
+//   arr.length = 3;
+//   console.log(arr); //[1, 2, 3]
+//   arr.length = 5;
+//   console.log(arr); // [1, 2, 3, empty × 2]
+// })();
+
+// 2.
+
+// let checkOutput = (x) => {
+//     delete x
+//     return x
+// }
+// console.log(checkOutput(0)) // 0
+
+// 3.
+
+// Promise.resolve(0)
+//   .then((x) => x + 1)
+//   .then((x) => x + 2)
+//   .then((x) => {})
+//   .then((x) => x + 3)
+//   .then((x) => console.log(x))
+//   .catch(console.error); // NaN
+
+// 4.
+
+// // encodes characters such as ?,=,/,&,:
+// console.log(`?x=${encodeURIComponent('test?')}`);
+// // expected output: "?x=test%3F"
+
+// console.log(`?x=${encodeURIComponent('шеллы')}`);
+// // expected output: "?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"
+
+// we have some other ways as well to persist the state in react.
+// 1- Local Storage
+// 2- Persist Redux
+// 3- URL Params
+// I personally recommend to use URL Params to persist the state in this case.
+
+// 5.
+
+//Destructure degree
+// const student = {
+//   name: "Sayak",
+//   education: {
+//     degree: "B.Tech",
+//   },
+// };
+
+// const { education } = student;
+// const { degree } = education;
+
+// // Second way is nested destructing
+// const {
+//   education: { degree },
+// } = student;
+
+// 6.
