@@ -1,0 +1,24 @@
+#cc2 {
+  height: 600px;
+  width: 600px;
+  border: 1px solid red;
+  position: relative;
+}
+#cc3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid green;
+  height: 200px;
+  width: 200px;
+}
+#cc3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid violet;
+  height: 200px;
+  width: 200px;
+}

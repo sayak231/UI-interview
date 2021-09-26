@@ -556,8 +556,8 @@ console.log("%cThis webpage is for Practice", "color:green; font-size:20px");
 //           if (errorResp.length > 0) {
 //             reject(errorResp);
 //           } else {
-//             // resolve(esponses)
-//             // To know our cutom promise function returning result
+//             // resolve(responses)
+//             // To know our custom promise function returning result
 //             resolve("custom promise ::" + responses);
 //           }
 //         }
@@ -875,3 +875,19 @@ console.log("%cThis webpage is for Practice", "color:green; font-size:20px");
 // } = student;
 
 // 6.
+
+// console.log(["1", "7", "11"].map(parseInt));
+// // parseInt expects two arguments, 1st is the string, 2nd is the radix or base
+// // So here '1' base 0 is 1, '7' base 1 is NaN, because base1 is illegal, and '11' base 2 is 3 - basically converting binary '11' to decimal, i.e., 3
+// console.log(["1", "7", "11"].map(Number));
+// console.log(parseInt("A1", 16)); // Hex
+
+// 7.
+
+// Can you delete variable a using delete keyword ?
+
+// let a = 10; b= 10
+// console.log(a, b); // 10 10
+// delete a;
+// delete b; // Uncaught ReferenceError: b is not defined
+// console.log(a, b);
