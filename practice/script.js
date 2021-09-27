@@ -1,3 +1,9 @@
+console.log(
+  "%cThis webpage is for Practice",
+  "color:green; font-size:40px;border: 1px solid red;margin: 10px; padding: 10px;"
+);
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 // const A = (b) => {
 //   let a = 10;
 //   return () => {
@@ -170,6 +176,37 @@
 // curryUnaryFunction(1); // returns a function: b => c =>  1 + b + c
 // curryUnaryFunction(1)(2); // returns a function: c => 3 + c
 // curryUnaryFunction(1)(2)(3); // returns the number 6
+
+// function curry(func) {
+//   console.log("func.length", func.length);
+//   return function curried(...args) {
+//     if (args.length >= func.length) {
+//       return func(...args);
+//     } else {
+//       return function (...more) {
+//         console.log(
+//           "func.length",
+//           func.length,
+//           "...args",
+//           args,
+//           "...more",
+//           more
+//         );
+//         return curried(...args, ...more);
+//       };
+//     }
+//   };
+// }
+
+// function multiply(a, b, c, d) {
+//   return a * b * c * d;
+// }
+// // To get the curried version of multiply we pass it to our above curry function.
+// let curried = curry(multiply);
+// console.log(curried(2)(3)(4)(5)); // 24
+// console.log(curried(2, 3)(4)); // 24
+// console.log(curried(2, 3, 4)); // 24
+// console.log(curried(5)(6, 7)); // 210
 
 //--------------------------------------------------------------
 //Impure
@@ -353,8 +390,6 @@
 // console.log(false ?? true); // false
 // console.log(undefined ?? true); // true
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------
-console.log("%cThis webpage is for Practice", "color:green; font-size:20px");
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // const weather = (function getWeather(temp) {
@@ -812,6 +847,7 @@ console.log("%cThis webpage is for Practice", "color:green; font-size:20px");
 //   });
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 // Tricky interview ques
 //1.
 
@@ -891,3 +927,54 @@ console.log("%cThis webpage is for Practice", "color:green; font-size:20px");
 // delete a;
 // delete b; // Uncaught ReferenceError: b is not defined
 // console.log(a, b);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const promisify = (item, delay) =>
+//   new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(item);
+//       console.log(item);
+//     }, delay);
+//   });
+
+// const a = () => promisify("a", 1000);
+// const b = () => promisify("b", 5000);
+// const c = () => promisify("c", 3000);
+
+// // a();
+// // b();
+// // c();
+
+// async function parallel() {
+//   const promises = [a(), b(), c()];
+//   const [output1, output2, output3] = await Promise.all(promises);
+//   return `prallel is done: ${output1} ${output2} ${output3}`;
+// }
+
+// async function race() {
+//   const promises = [a(), b(), c()];
+//   const output1 = await Promise.race(promises);
+//   return `race is done: ${output1}`;
+// }
+
+// async function sequence() {
+//   const output1 = await a();
+//   const output2 = await b();
+//   const output3 = await c();
+//   return `sequence is done ${output1} ${output2} ${output3}`;
+// }
+
+// sequence().then(console.log);
+// parallel().then(console.log);
+// race().then(console.log);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// (async function showIndexedDBSpace() {
+//   const quota = await navigator.storage.estimate();
+//   const totalSpace = quota.quota;
+//   const usedSpace = quota.usage;
+//   console.log(quota, totalSpace, usedSpace);
+// })();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
