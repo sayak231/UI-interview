@@ -22,3 +22,15 @@
   height: 200px;
   width: 200px;
 }
+
+#container > .box {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+}
+
+#container .box {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+}
