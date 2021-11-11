@@ -131,21 +131,21 @@ console.log(
 
 //---------------------------------------------------
 
-let arrayIntegers = [1, 2, 3, 4, 5, 6, 7];
+// let arrayIntegers = [1, 2, 3, 4, 5, 6, 7];
 // let arrayIntegers1 = arrayIntegers.slice(0, 2); // returns [1,2]
 // let arrayIntegers2 = arrayIntegers.slice(2, 3); // returns [3]
 // let arrayIntegers3 = arrayIntegers.slice(4); //returns [5,6,7]
-let arrayIntegers3 = arrayIntegers.slice(-4); //returns [4,5,6,7]
+// let arrayIntegers3 = arrayIntegers.slice(-4); //returns [4,5,6,7]
 
-let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
+// let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
+// let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
+// let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
 
 // let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); // returns [1, 2]; original array: [3, 4, 5]
 // let arrayIntegers2 = arrayIntegersOriginal2.splice(-2); // returns [4, 5]; original array: [1, 2, 3]
 // let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
 // let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
-console.log(arrayIntegers3);
+// console.log(arrayIntegers3);
 
 //--------------------------------------------------------------
 
@@ -897,7 +897,7 @@ console.log(arrayIntegers3);
 
 // Can you delete variable a using delete keyword ?
 
-// let a = 10; b= 10
+// let a = 10; b= 11
 // console.log(a, b); // 10 10
 // delete a;
 // delete b; // Uncaught ReferenceError: b is not defined
@@ -917,21 +917,23 @@ console.log(arrayIntegers3);
 // const b = () => promisify("b", 5000);
 // const c = () => promisify("c", 3000);
 
-// // a();
-// // b();
-// // c();
+// a();
+// b();
+// c();
 
 // async function parallel() {
 //   const promises = [a(), b(), c()];
 //   const [output1, output2, output3] = await Promise.all(promises);
-//   return `prallel is done: ${output1} ${output2} ${output3}`;
+//   return `parallel is done: ${output1} ${output2} ${output3}`;
 // }
+// parallel().then(console.log);
 
 // async function race() {
 //   const promises = [a(), b(), c()];
 //   const output1 = await Promise.race(promises);
 //   return `race is done: ${output1}`;
 // }
+// race().then(console.log);
 
 // async function sequence() {
 //   const output1 = await a();
@@ -939,10 +941,7 @@ console.log(arrayIntegers3);
 //   const output3 = await c();
 //   return `sequence is done ${output1} ${output2} ${output3}`;
 // }
-
 // sequence().then(console.log);
-// parallel().then(console.log);
-// race().then(console.log);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 // (async function showIndexedDBSpace() {
@@ -976,5 +975,34 @@ console.log(arrayIntegers3);
 
 // console.log(copiedPerson);
 // console.log(person);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function foo(array) {
+//   return Object.freeze(
+//     array.reduce((obj, item, index) => {
+//       if (typeof item === "string") {
+//         console.log(obj, index);
+//         obj[(obj[index] = item.toUpperCase())] = index;
+//       }
+//       return obj;
+//     }, {})
+//   );
+// }
+// const bar = foo(["a", "B", "C"]);
+// console.log(bar); // {0: "A",1: "B",2: "C",A: 0,B: 1,C: 2}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function turnOn(machine) {
+  machine.isOn = true;
+}
+
+const computer = {
+  isOn: false,
+};
+
+turnOn(computer);
+console.log(computer.isOn); // true;
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
