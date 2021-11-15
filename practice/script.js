@@ -33,7 +33,21 @@ console.log(
 //   return finalObj;
 // };
 
-//---------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
+
+// // JavaScript inbuilt flat
+// const arr = [1, 2, [3, 4, [5, [6, 7, { a: "b" }]]]];
+
+// console.log(arr.flat(1)); // [1, 2, 3, 4, Array(2)]
+// console.log(arr.flat(2)); // [1, 2, 3, 4, 5, Array(3)]
+// console.log(arr.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, {…}]
+
+// const sampl = [1, 2, 3, 4];
+// const prod2 = (ele) => [ele * 2];
+// console.log(sampl.map(prod2)); // [[1],[2],[3],[4]]
+// console.log(sampl.flatMap(prod2)); // [1, 2, 3, 4]
+
+//----------------------------------------------------------------------------------------------------------------------------
 
 // function Person(name, age) {
 //   this.name = name;
@@ -994,15 +1008,15 @@ console.log(
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function turnOn(machine) {
-  machine.isOn = true;
-}
+// function turnOn(machine) {
+//   machine.isOn = true;
+// }
 
-const computer = {
-  isOn: false,
-};
+// const computer = {
+//   isOn: false,
+// };
 
-turnOn(computer);
-console.log(computer.isOn); // true;
+// turnOn(computer);
+// console.log(computer.isOn); // true;
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
