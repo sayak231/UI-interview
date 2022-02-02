@@ -1020,3 +1020,102 @@ console.log(
 // console.log(computer.isOn); // true;
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function reduceBy1(n) {
+//   if (n == 0) return 1;
+//   return reduceBy1(n - 1);
+// }
+
+// console.log(reduceBy1(100000)); //  Recursion call stack exceeds when its greater than 10^5
+
+// Using closure :-
+// function reduceBy1Closure(n) {
+//   if (n == 0) return 1;
+//   return () => reduceBy1Closure(n - 1);
+// }
+
+// let res = reduceBy1Closure(100000);
+// while (typeof res == "function") {
+//   res = res();
+// }
+// console.log(res);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function add(arg1) {
+//   return function (arg2) {
+//     return arg1 + arg2;
+//   };
+// }
+// console.log(add(1)(2));
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// merges and sorts two sorted arrays together
+// function mergeSortedArray(a, b) {
+//   let index = 0;
+
+//   while (b.length > 0 && a[index]) {
+//     if (a[index] > b[0]) {
+//       a.splice(index, 0, b.shift());
+//     }
+//     index++;
+//   }
+//   return [...a, ...b];
+// }
+
+// const arr1 = [1, 4, 6, 9];
+// const arr2 = [2, 5, 11]; //
+
+// const arr3 = mergeSortedArray(arr1, arr2);
+
+// console.log(arr3);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// closure ex
+// function makeFunc() {
+//   const name = "Mozilla";
+//   function displayName() {
+//     console.log(name);
+//   }
+//   return displayName;
+// }
+
+// const myFunc = makeFunc();
+// myFunc();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// console.log(true || 2); // true
+// console.log(true && 2); // 2
+// console.log(2 && true); // true
+// console.log(2 || true); // 2
+
+// console.log(false || 2); // 2
+// console.log(false && 2); // false
+// console.log(2 && false); // false
+// console.log(2 || false); // 2
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function test() {
+//   const name = "Sayak";
+
+//   console.log(typeof name === "object"); // false
+//   console.log(typeof name === "string"); // true
+
+//   console.log(!(typeof name === "object")); // true
+//   console.log(!(typeof name === "string")); // false
+
+//   console.log(!typeof name === "object"); // false
+//   console.log(!typeof name === "string"); // false
+
+//   console.log(!false); // true
+//   console.log(!true); // false
+
+//   // typeof name = 'string'
+//   // !'string' = false
+//   // false === 'object' = false
+// }
+// test();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
