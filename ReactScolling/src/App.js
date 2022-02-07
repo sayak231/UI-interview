@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import useBookSearch from "./useBookSearch";
 import VirtualScrollApp from "./virtual/index.js";
+import InfiniteScrollList from "./virtual/InfiniteScrollList.js";
 import Words from "./virtual/Words.js";
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
       <div>{loading && "Loading..."}</div>
       <div>{error && "Error"}</div>
       <VirtualScrollApp />
+      <InfiniteScrollList />
     </>
   );
 }

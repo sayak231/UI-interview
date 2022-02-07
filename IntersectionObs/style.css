@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+  font-family: "Averia serif libre";
+  background-color: crimson;
+  color: aliceblue;
+  height: 2000px;
+}
+video {
+  width: 600px;
+  margin-top: 50px;
+}
+h1 {
+  margin-top: 50px;
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+a {
+  color: skyblue;
+}
+#warning {
+  padding: 10px;
+  color: beige;
+  background: red;
+}
+@media (max-width: 620px) {
+  video {
+    width: 90vw;
+  }
+}
