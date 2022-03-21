@@ -1,0 +1,66 @@
+{
+  "id": 1,
+  "name": "root",
+  "items": [
+    {
+      "id": 2,
+      "name": "public",
+      "items": [
+        {
+          "id": 3,
+          "name": "manifest",
+          "items": [
+            {
+              "id": 4,
+              "name": "manifest1.json"
+            },
+            {
+              "id": 5,
+              "name": "manifest2.json"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "index.html"
+        },
+        {
+          "id": 7,
+          "name": "style.css"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "src",
+      "items": [
+        {
+          "id": 9,
+          "name": "components",
+          "items": [
+            {
+              "id": 10,
+              "name": "component1.json"
+            },
+            {
+              "id": 11,
+              "name": "component2.json"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "index.js"
+        },
+        {
+          "id": 13,
+          "name": "app.js"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "package.json"
+    }
+  ]
+}

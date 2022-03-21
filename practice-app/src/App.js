@@ -1,14 +1,10 @@
-import "./App.css";
-import ComponentA from "./components/ComponentA";
-import ComponentB from "./components/ComponentB";
-import ComponentC from "./components/ComponentC";
+import Structure from "./components/folder-structure/Structure";
 
 function App() {
+  console.log("jj");
   return (
     <>
-      <ComponentA />
-      {/* <ComponentB />
-      <ComponentC /> */}
+      <Structure />
     </>
   );
 }

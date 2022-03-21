@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>Observer Pattern Click</title>
+  </head>
+  <body class="container">
+    <script>
+      function Click() {
+        this.handlers = []; // observers
+      }
+
+      Click.prototype = {
+        subscribe: function (fn) {
+          this.handlers.push(fn);
+        },
+
+        unsubscribe: function (fn) {
+          this.handlers = this.handlers.filter(function (item) {
+            if (item !== fn) {
+              return item;
+            }
+          });
+        },
+
+        fire: function (o, thisObj) {
+          var scope = thisObj || window;
+          this.handlers.forEach(function (item) {
+            item.call(scope, o);
+          });
+        },
+      };
+
+      function run() {
+        var clickHandler = function (item) {
+          console.log("fired: " + item);
+        };
+
+        var clickHandler2nd = function (item) {
+          console.log("fired 2nd: " + item);
+        };
+
+        var click = new Click();
+
+        // click.subscribe(clickHandler);
+        // click.fire("event #1");
+        // click.unsubscribe(clickHandler);
+        // click.fire("event #2");
+        // click.subscribe(clickHandler);
+        // click.fire("event #3");
+
+        // click.subscribe(clickHandler);
+        // click.fire("event #1");
+        // click.fire("event #2");
+        // click.fire("event #3");
+
+        // click.fire("event #1");
+        // click.fire("event #2");
+        // click.fire("event #3");
+
+        // click.subscribe(clickHandler);
+        // click.fire("event #1");
+        // click.unsubscribe(clickHandler);
+        // click.subscribe(clickHandler);
+        // click.fire("event #2");
+        // click.unsubscribe(clickHandler);
+        // click.subscribe(clickHandler);
+        // click.fire("event #3");
+        // click.unsubscribe(clickHandler);
+
+        // click.fire("event #1");
+        // click.subscribe(clickHandler);
+        // click.fire("event #2");
+        // click.unsubscribe(clickHandler);
+        // click.subscribe(clickHandler);
+        // click.fire("event #3");
+        // click.unsubscribe(clickHandler);
+
+        // click.fire("event #1");
+        // click.subscribe(clickHandler);
+        // click.subscribe(clickHandler2nd);
+        // click.fire("event #2");
+        // click.unsubscribe(clickHandler);
+        // click.subscribe(clickHandler);
+        // click.fire("event #3");
+        // click.unsubscribe(clickHandler);
+
+        click.fire("event #1");
+        click.subscribe(clickHandler);
+        click.subscribe(clickHandler2nd);
+        click.fire("event #2");
+        click.unsubscribe(clickHandler);
+        click.fire("event #3");
+        click.unsubscribe(clickHandler);
+      }
+      run();
+    </script>
+  </body>
+</html>
