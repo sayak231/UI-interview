@@ -1,7 +1,27 @@
-console.log(
-  "%cThis webpage is for Practice",
-  "color:green; font-size:40px;border: 1px solid red;margin: 10px; padding: 10px;"
-);
+// console.log(
+//   "%cThis webpage is for Practice",
+//   "color:green; font-size:40px;border: 1px solid red;margin: 10px; padding: 10px;",
+// );
+
+// console.log(0.1 + 0.2); // 0.30000000000000004
+// console.log(0.3 + 0.6); // 0.8999999999999999
+
+// // tHIS WILL GIVE THE TIME TAKEN B/W CONSOLE.TIME AND CONSOLE.TIMEEND
+// console.time("Timer");
+// for (let i = 0; i < 100000000; i++) {
+//   // do nothing
+// }
+// console.timeEnd("Timer");
+
+// const x = 2;
+// console.assert(x === 1, "1 is not equal to 1"); // Assertion failed: 1 is not equal to 1
+
+// const people = [
+//   { name: "John", age: 30 },
+//   { name: "Mike", age: 23 },
+//   { name: "Nancy", age: 40 },
+// ];
+// console.table(people); // prints in table format
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // const A = (b) => {
@@ -43,7 +63,7 @@ console.log(
 // console.log(arr.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, {…}]
 
 // const sampl = [1, 2, 3, 4];
-// const prod2 = (ele) => [ele * 2];
+// const prod2 = (ele) => [[ele * 2]];
 // console.log(sampl.map(prod2)); // [[1],[2],[3],[4]]
 // console.log(sampl.flatMap(prod2)); // [1, 2, 3, 4]
 
@@ -68,10 +88,97 @@ console.log(
 // console.log(object);
 
 //---------------------------------------------------
+// Prototype chaining
 // .__proto__
 
-// console.log([].__proto__.__proto__);
-// console.log([].prototype);
+// __proto__ is the actual object that is used in the lookup chain to resolve methods, etc.
+// prototype is the object that is used to build __proto__ when you create an object with new:
+
+// console.table([
+//   {
+//     "Object.prototype": Object.prototype,
+//     "Array.prototype": Array.prototype,
+//     "Function.prototype": Function.prototype,
+//     "Object.__proto__": Object.__proto__,
+//     "Array.__proto__": Array.__proto__,
+//     "Function.__proto__": Function.__proto__,
+//     "Object.__proto__.__proto__": Object.__proto__.__proto__,
+//     "Array.__proto__.__proto__": Array.__proto__.__proto__,
+//     "Function.__proto__.__proto__": Function.__proto__.__proto__,
+//     "Object.__proto__.__proto__.__proto__":
+//       Object.__proto__.__proto__.__proto__,
+//     "Array.__proto__.__proto__.__proto__": Array.__proto__.__proto__.__proto__,
+//     "Function.__proto__.__proto__.__proto__":
+//       Function.__proto__.__proto__.__proto__,
+//   },
+// ]);
+
+// console.log("Object.prototype", Object.prototype);
+// console.log("Array.prototype", Array.prototype);
+// console.log("Function.prototype", Function.prototype);
+// console.log("Object.__proto__", Object.__proto__);
+// console.log("Array.__proto__", Array.__proto__);
+// console.log("Function.__proto__", Function.__proto__);
+// console.log("Object.__proto__.__proto__", Object.__proto__.__proto__); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+// console.log("Array.__proto__.__proto__", Array.__proto__.__proto__); //{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+// console.log("Function.__proto__.__proto__", Function.__proto__.__proto__); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+// console.log(
+//   "Object.__proto__.__proto__.__proto__",
+//   Object.__proto__.__proto__.__proto__,
+// ); // NULL
+// console.log(
+//   "Array.__proto__.__proto__.__proto__",
+//   Array.__proto__.__proto__.__proto__,
+// ); // NULL
+// console.log(
+//   "Function.__proto__.__proto__.__proto__",
+//   Function.__proto__.__proto__.__proto__,
+// ); // NULL
+// console.log("Object.prototype.__proto__", Object.prototype.__proto__); // NULL
+
+// console.log(Object.__proto__ === Array.__proto__); // true
+// console.log(Object.__proto__ === Function.__proto__); // true
+// console.log(Function.__proto__ === Array.__proto__); // true
+
+// console.log([].__proto__.__proto__ === {}.__proto__); // true
+// function fun() {
+//   //haha
+// }
+// console.log(fun.__proto__ === Function.prototype); // true
+// console.log(fun.__proto__.__proto__ === Object.prototype); // true
+// console.log(fun.__proto__.__proto__.__proto__ === null); // true
+// console.log(fun.__proto__ === {}.__proto__); // false
+// console.log(fun.__proto__.__proto__ === {}.__proto__); // true
+
+// console.log([].__proto__.__proto__); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+// console.log([].prototype); // undefined
+
+// function Foo() {
+//   // do something foo;
+// }
+// console.log(
+//   new Foo().__proto__,
+//   Foo.prototype,
+//   new Foo().__proto__ === Foo.prototype,
+// ); // {constructor: ƒ} {constructor: ƒ} true
+// console.log(new Foo().prototype === undefined); // true
+
+// var house = { color: "brown", size: "huge", expensive: true };
+
+// console.log(house.prototype); // undefined
+// console.log(house.__proto__); // {constructor: ƒ, __defineGetter__: ƒ, __defineSet... (__pro
+
+// // Note: 'house' is an object that has a __proto__ object, but does not have a prototype
+
+// function add(a, b) {
+//   return a + b;
+// }
+
+// console.log(add.prototype); // {constructor: ƒ}
+// console.log(add.__proto__); // ƒ () { [native code] }
+
+// Note: 'add' is a function that has a __proto__ and a prototype property.
+// Try this code yourself and you'll see that the prorotype property is referenced in the __proto__ object within the constructor function
 
 //---------------------------------------------------
 
@@ -105,43 +212,260 @@ console.log(
 
 //---------------------------------------------------
 
-// var employee1 = { firstName: "John", lastName: "Rodson" };
-// var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+// call bind apply
+
+// const employee1 = { firstName: "John", lastName: "Rodson" };
+// const employee2 = { firstName: "Jimmy", lastName: "Baily" };
 
 // function invite(greeting1, greeting2) {
 //   console.log(
-//     greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+//     greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2,
 //   );
 // }
 
 // invite.call(employee1, "Hello", "How are you?"); // Hello John Rodson, How are you?
 // invite.call(employee2, "Hello", "How are you?"); // Hello Jimmy Baily, How are you?
 
-// var employee1 = { firstName: "John", lastName: "Rodson" };
-// var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+// const employee1 = { firstName: "John", lastName: "Rodson" };
+// const employee2 = { firstName: "Jimmy", lastName: "Baily" };
 
 // function invite(greeting1, greeting2) {
 //   console.log(
-//     greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+//     greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2,
 //   );
 // }
 
 // invite.apply(employee1, ["Hello", "How are you?"]); // Hello John Rodson, How are you?
 // invite.apply(employee2, ["Hello", "How are you?"]); // Hello Jimmy Baily, How are you?
 
-// var employee1 = { firstName: "John", lastName: "Rodson" };
-// var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+// const employee1 = { firstName: "John", lastName: "Rodson" };
+// const employee2 = { firstName: "Jimmy", lastName: "Baily" };
 
 // function invite(greeting1, greeting2) {
 //   console.log(
-//     greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+//     greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2,
 //   );
 // }
 
-// var inviteEmployee1 = invite.bind(employee1);
-// var inviteEmployee2 = invite.bind(employee2);
-// inviteEmployee1("Hello", "How are you?"); // Hello John Rodson, How are you?
+// const inviteEmployee1 = invite.bind(employee1, "Hi");
+// const inviteEmployee2 = invite.bind(employee2);
+// inviteEmployee1("How are you?"); // Hello John Rodson, How are you?
 // inviteEmployee2("Hello", "How are you?"); // Hello Jimmy Baily, How are you?
+
+// PolyFill for call
+
+// function runCall() {
+//   console.log(arguments, arguments[0], this);
+//   arguments[0].fn = this;
+//   //converting arguments to proper array[],
+//   let paramsArray = [];
+//   for (let arg of arguments) {
+//     paramsArray.push(arg);
+//   }
+//   arguments[0].fn(...paramsArray.slice(1));
+//   //OR
+//   //arguments[0].fn.apply(arguments[0], paramsArray.slice(1));
+// }
+
+// //runCall2 has defined parameters
+// function runCall2(context, ...args) {
+//   context.fn = this;
+//   context.fn(...args);
+//   //OR
+//   //context.fn.apply(context, args);
+// }
+
+// Function.prototype.runCall = runCall;
+// Function.prototype.runCall2 = runCall2;
+
+// function displayUser(state, country, method) {
+//   console.log("----- " + method + " -----");
+//   console.log("Name : ", this.name);
+//   console.log("Age : ", this.age);
+//   console.log("City : ", this.city);
+//   console.log("State : ", state);
+//   console.log("Country : ", country);
+// }
+// var user = {
+//   name: "John Stewart",
+//   age: "🙊",
+//   city: "Sanfrancisco",
+// };
+// displayUser.runCall(user, "CA", "USA", "call --> runCall"); //----> passing context, params
+// displayUser.runCall2(user, "CA", "USA", "call --> runCall2"); //----> passing context, params
+
+// PolyFill for apply
+
+// function runApply() {
+//   let context = arguments[0];
+//   let args = arguments[1];
+//   context.fn = this;
+//   context.fn(...args);
+// }
+
+// Function.prototype.runApply = runApply;
+
+// function displayUser(state, country, method) {
+//   console.log("----- " + method + " -----");
+//   console.log("Name : ", this.name);
+//   console.log("Age : ", this.age);
+//   console.log("City : ", this.city);
+//   console.log("State : ", state);
+//   console.log("Country : ", country);
+// }
+// var user = {
+//   name: "John Stewart",
+//   age: "🙊",
+//   city: "Sanfrancisco",
+// };
+// displayUser.runApply(user, ["CA", "USA", "apply --> runApply"]);
+
+// PolyFill for bind
+
+// Function.prototype.myBind = function (context, ...args1) {
+//   return (...args2) => {
+//     this.apply(context, [...args1, ...args2]);
+//   };
+// };
+
+// function displayUser(state, country, method) {
+//   console.log("----- " + method + " -----");
+//   console.log("Name : ", this.name);
+//   console.log("Age : ", this.age);
+//   console.log("City : ", this.city);
+//   console.log("State : ", state);
+//   console.log("Country : ", country);
+// }
+// let user = {
+//   name: "John Stewart",
+//   age: "🙊",
+//   city: "Sanfrancisco",
+// };
+// let boundDisplayUser = displayUser.myBind(user, "CA");
+// boundDisplayUser("USA", "bind --> myBind");
+
+// uses of call
+
+// function Product(name, price) {
+//   this.name = name;
+//   this.price = price;
+// }
+
+// function Food(name, price) {
+//   Product.call(this, name, price);
+//   this.category = "food";
+// }
+
+// function Toy(name, price) {
+//   Product.call(this, name, price);
+//   this.category = "toy";
+// }
+
+// const cheese = new Food("feta", 5);
+// const fun = new Toy("robot", 40);
+
+//-
+
+// const animals = [
+//   { species: "Lion", name: "King" },
+//   { species: "Whale", name: "Fail" },
+// ];
+
+// for (let i = 0; i < animals.length; i++) {
+//   (function (i) {
+//     this.print = function () {
+//       console.log("#" + i + " " + this.species + ": " + this.name);
+//     };
+//     this.print();
+//   }.call(animals[i], i));
+// }
+
+//-
+
+// 'use strict';
+
+// var sData = 'Wisen';
+
+// function display() {
+//   console.log('sData value is %s ', this.sData);
+// }
+
+// display.call(); // Cannot read the property of 'sData' of undefined
+
+// uses of apply
+
+// // concat array
+// const array = ["a", "b"];
+// const elements = [0, 1, 2];
+// array.push.apply(array, elements);
+// console.info(array); // ["a", "b", 0, 1, 2]
+
+// // min/max number in an array
+// const numbers = [5, 6, 2, 3, 7];
+
+// // using Math.min/Math.max apply
+// let max = Math.max.apply(null, numbers);
+// // This about equal to Math.max(numbers[0], ...)
+// // or Math.max(5, 6, ...)
+
+// let min = Math.min.apply(null, numbers);
+
+// console.log(max, min);
+
+// uses of bind
+
+// function list() {
+//   return Array.prototype.slice.call(arguments);
+// }
+
+// function addArguments(arg1, arg2) {
+//   return arg1 + arg2;
+// }
+
+// const list1 = list(1, 2, 3);
+// //  [1, 2, 3]
+
+// const result1 = addArguments(1, 2);
+// //  3
+
+// // Create a function with a preset leading argument
+// const leadingThirtysevenList = list.bind(null, 37);
+
+// // Create a function with a preset first argument.
+// const addThirtySeven = addArguments.bind(null, 37);
+
+// const list2 = leadingThirtysevenList();
+// //  [37]
+
+// const list3 = leadingThirtysevenList(1, 2, 3);
+// //  [37, 1, 2, 3]
+
+// const result2 = addThirtySeven(5);
+// //  37 + 5 = 42
+
+// const result3 = addThirtySeven(5, 10);
+// //  37 + 5 = 42
+// //  (the second argument is ignored)
+
+//-
+
+// function LateBloomer() {
+//   this.petalCount = 8;
+// }
+
+// // Declare bloom after a delay of 1 second
+// LateBloomer.prototype.bloom = function () {
+//   window.setTimeout(this.declare.bind(this), 3000); // I am a beautiful flower with 8 petals!
+//   window.setTimeout(this.declare, 5000); // I am a beautiful flower with undefined petals!
+// };
+
+// LateBloomer.prototype.declare = function () {
+//   console.log(`I am a beautiful flower with ${this.petalCount} petals!`);
+// };
+
+// const flower = new LateBloomer();
+// flower.bloom();
+// //  after 3 seconds, calls 'flower.declare()'
 
 //---------------------------------------------------
 
@@ -184,6 +508,52 @@ console.log(
 
 //--------------------------------------------------------------
 
+// let multiply = function (c) {
+//   return function (y) {
+//     return c * y;
+//   };
+// };
+
+// let multiplyByTwo = multiply(2);
+// let multiplyByThree = multiply(3);
+
+// console.log(multiplyByTwo(4)); // 8
+// console.log(multiplyByThree(4)); // 12
+
+// -
+
+// let add = function (c) {
+//   return function (y) {
+//     return function (z) {
+//       return c + y + z;
+//     };
+//   };
+// };
+
+// let addByTwo = add(2);
+// let addByThree = add(3);
+
+// console.log(addByTwo(4)(4)); // 10
+// console.log(addByThree(4)(4)); // 11
+
+//-
+// how to make any function curryable
+// const curry = (fn) => {
+//   return (curried = (...args) => {
+//     if (fn.length !== args.length) {
+//       return curried.bind(null, ...args);
+//     }
+//     return fn(...args);
+//   });
+// };
+// const totalNum = (x, y, z) => {
+//   return x + y + z;
+// };
+// const curriedTotal = curry(totalNum);
+// console.log(curriedTotal(10)(20)(30));
+
+//-
+
 // const multiArgFunction = (a, b, c) => a + b + c;
 // console.log(multiArgFunction(1, 2, 3)); // 6
 
@@ -205,7 +575,7 @@ console.log(
 //           "...args",
 //           args,
 //           "...more",
-//           more
+//           more,
 //         );
 //         return curried(...args, ...more);
 //       };
@@ -222,6 +592,58 @@ console.log(
 // console.log(curried(2, 3)(4)); // 24
 // console.log(curried(2, 3, 4)); // 24
 // console.log(curried(5)(6, 7)); // 210
+
+//-
+
+// const add = (a, b, c) => a + b + c + 5;
+
+// const mul = (a, b, c, d) => a * b * c * d;
+
+// const perpetualCurry = function (fn) {
+//   return function (...args) {
+//     console.log("u", fn.length, args);
+//     if (args.length === fn.length) {
+//       // console.log("1", args.length, fn.length);
+//       return fn(...args);
+//     } else {
+//       // console.log("2", args.length, fn.length);
+//       return perpetualCurry(fn.bind(fn, ...args));
+//     }
+//   };
+// };
+
+// const multplyC = perpetualCurry(mul);
+// console.log(multplyC(7)(3)(1)(5));
+// const addC = perpetualCurry(add);
+// console.log(addC(1)(2)(3));
+
+//-
+
+// // sum(a)(b)(c)(d)........(n)()
+
+// // function sum(a) {
+// //   return function (b) {
+// //     if (b) {
+// //       return sum(a + b);
+// //     } else {
+// //       return a;
+// //     }
+// //   };
+// // }
+
+// const sum = (a) => (b) => b ? sum(a + b) : a;
+
+// console.log(sum(1)(2)(3)(4)()); // 10
+// console.log(sum(2)(2)()); // 4
+// console.log(sum(1)(2)(3)(4)(1)(2)(3)(4)()); // 20
+// console.log(sum(4)(2)(3)(1)(5)()); // 15
+
+//-
+// DOM curry
+// const updateElemText = (id) => (content) =>
+//   (document.querySelector(`#${id}`).textContent = content);
+// const updateHeaderText = updateElemText("header");
+// updateHeaderText("Hello Samuel!");
 
 //--------------------------------------------------------------
 //Impure
@@ -509,7 +931,30 @@ console.log(
 //   };
 // };
 
-// const debouncedSearch = debounce(searchRestaurants, 300);
+// debounce polyfill without setTimeout
+
+// const debounce = function (func, delay) {
+//   let timer;
+//   return function () {
+//     //anonymous function
+//     const context = this;
+//     const args = arguments;
+
+// cancelIdleCallback(timer);
+// let startTime = Date.now();
+// function check() {
+//   if (Date.now() >= startTime + delay) func.apply(context, args);
+//   else timer = requestIdleCallback(check);
+// }
+// timer = requestIdleCallback(check);
+//   };
+// };
+
+// const fun = () => console.log("fun");
+
+// const debouncedSearch = debounce(fun, 300);
+
+// document.getElementById("inpt").addEventListener("input", debouncedSearch);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 // throttle polyfill functions
@@ -529,6 +974,32 @@ console.log(
 //     }
 //   };
 // }
+
+// function throttle(callback, limit) {
+//   var wait = false; // Initially, we're not waiting
+//   return function () {
+//     // We return a throttled function
+//     const context = this;
+//     const args = arguments;
+//     if (!wait) {
+//       // If we're not waiting
+//       callback.apply(context, args); // Execute users function
+//       wait = true; // Prevent future invocations
+//       let startTime = Date.now();
+//       function check() {
+//         if (Date.now() >= startTime + limit) wait = false;
+//         else requestIdleCallback(check);
+//       }
+//       requestIdleCallback(check);
+//     }
+//   };
+// }
+
+// const fun = () => console.log("fun");
+
+// const throttledSearch = throttle(fun, 3000);
+
+// document.getElementById("idf").addEventListener("click", throttledSearch);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 // Proof that "this keyword always points to global in case of arrow functions, arrow v/s normal"
@@ -810,6 +1281,13 @@ console.log(
 //       res(k);
 //     }, ms);
 //   });
+// }
+
+// function sleep(delay) {
+//   var startTime = Date.now();
+
+//   // loop until the current time exceeds the delayed time.
+//   while (Date.now() > startTime + delay);
 // }
 // console.log(sleep(5, 5000));
 
@@ -1117,5 +1595,1210 @@ console.log(
 //   // false === 'object' = false
 // }
 // test();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Call Stack checking
+// function subtractTwo(num) {
+//   return num - 2;
+// }
+
+// function calculate(num) {
+//   num = num + 2;
+//   return subtractTwo(num);
+// }
+
+// // debugger;
+// console.log(calculate(4));
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// var arr = [];
+// var obj = {};
+// var str = "";
+// for (var i = 0; i < 1024 * 1024 * 108; i++) {
+// arr.push(1);
+// obj[i] = 1;
+// str += " ";
+// }
+
+// var value = null;
+// function closure() {
+//   var last = value;
+//   (function () {
+//     last;
+//   })(last);
+//   value = {
+//     a: function () {},
+//   };
+// }
+// setInterval(function () {
+//   closure();
+//   console.log(process.memoryUsage());
+// }, 1);
+// Run with node js
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// var num1 = 10,
+//   num2 = 1;
+// for (var i = num1; i >= num2; i--) {
+//   setTimeout(console.log, (num1 - i) * 1000, i);
+// }
+
+// for (var i = num1; i >= num2; i--) {
+//   (function (i) {
+//     setTimeout(() => console.log(i), (num1 - i) * 1000);
+//   })(i);
+// }
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// hoisting
+
+// getName(); // Hello Sayak
+// getNameArrow(); // Uncaught TypeError: getNameArrow is not a function
+// console.log(x); // undefined
+// console.log(q); // Uncaught ReferenceError: q is not defined
+// console.log(z); // Uncaught ReferenceError: Cannot access 'z' before initialization
+// console.log(y); // Uncaught ReferenceError: Cannot access 'z' before initialization
+
+// var x = 10;
+// let y = 10;
+// const z = 10;
+
+// function getName() {
+//   console.log("Hello Sayak");
+// }
+
+// var getNameArrow = () => {
+//   console.log("Hello Sayak");
+// };
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// var
+
+// var greeter = "hey hi";
+// var times = 4;
+
+// if (times > 3) {
+//   var greeter = "say Hello instead";
+//   var another = 4;
+//   var insider = "hello";
+//   console.log(another);
+// }
+// var another = 8;
+// console.log(another);
+// console.log(insider);
+
+// console.log(greeter); // "say Hello instead"
+
+// let
+
+// let greeting = "say Hi";
+// if (true) {
+//   let greeting = "say Hello instead";
+//   console.log(greeting); // "say Hello instead"
+// }
+// // let greeting = "say Bye"; // Uncaught SyntaxError: Identifier 'greeting' has already been declared
+// console.log(greeting); // "say Hi"
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Differen types of errors
+
+// console.log(x); // Uncaught ReferenceError: x is not defined
+
+// const b; // Uncaught SyntaxError: Missing initializer in const declaration
+
+// const c = 1;
+// c = 2; // Uncaught TypeError: Assignment to constant variable.
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Block Scope
+// {
+//   var a = 10;
+//   let b = 20;
+//   const c = 30;
+//   console.log(a); // 10
+//   console.log(b); // 20
+//   console.log(c); // 30
+// }
+// console.log(a); // 10
+// console.log(b); // Uncaught ReferenceError: b is not defined
+// console.log(c); // Uncaught ReferenceError: c is not defined
+
+// var a = 100;
+// {
+//   var a = 10;
+//   let b = 20;
+//   const c = 30;
+//   console.log(a); // 10
+//   console.log(b); // 20
+//   console.log(c); // 30
+// }
+// console.log(a); // 10
+// a is shadowed and since its referring to the same memory location in global scope, its value is changed from inside the block.
+
+// let a = 100;
+// {
+//   var a = 10; //Uncaught SyntaxError: Identifier 'a' has already been declared  ----- Illegal shadowing
+// }
+
+// var a = 100;
+// {
+//   let a = 10; // legal shadowing
+// }
+
+// let a = 100;
+// {
+//   const a = 10; ///Uncaught SyntaxError: Identifier 'a' has already been declared  ----- Illegal shadowing
+// }
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// this keyword
+
+// let counter = {
+//   count: 0,
+//   next: function () {
+//     return ++this.count;
+//   },
+// };
+
+// console.log(counter.next()); // 1
+
+// ("use strict");
+// let counter = {
+//   count: 0,
+//   next: function () {
+//     return ++this.count;
+//   },
+// };
+
+// console.log(counter.next()); // 1
+
+// console.log(this); // Window
+// this.color = "Red";
+// console.log(window.color); // 'Red'
+
+// ("use strict");
+// console.log(this); // Window
+// this.color = "Red";
+// console.log(window.color); // 'Red'
+
+// function show() {
+//   console.log(this === window); // true
+// }
+
+// show();
+
+// "use strict";
+// function show() {
+//   console.log(this); // undefined
+// }
+
+// show();
+
+// let car = {
+//   brand: "Honda",
+//   getBrand: function () {
+//     return this.brand;
+//   },
+// };
+
+// console.log(car.getBrand()); // Honda
+
+// let brand = car.getBrand;
+
+// console.log(brand()); // undefined
+
+// let brand = car.getBrand.bind(car);
+// console.log(brand()); // Honda
+
+// let car = {
+//   brand: "Honda",
+//   getBrand: function () {
+//     return this.brand;
+//   },
+// };
+
+// let bike = {
+//   brand: "Harley Davidson",
+// };
+
+// let brand = car.getBrand.bind(bike);
+// console.log(brand());
+
+// function Car(brand) {
+//   this.brand = brand;
+// }
+
+// Car.prototype.getBrand = function () {
+//   return this.brand;
+// };
+
+// let car = new Car("Honda");
+// console.log(car.getBrand());
+
+// var bmw = Car("BMW");
+// console.log(bmw.brand);
+// // => TypeError: Cannot read property 'brand' of undefined
+
+// function Car(brand) {
+//   if (!(this instanceof Car)) {
+//     throw Error("Must use the new operator to call the function");
+//   }
+//   this.brand = brand;
+// }
+
+// function Car(brand) {
+//   if (!new.target) {
+//     throw Error("Must use the new operator to call the function");
+//   }
+//   this.brand = brand;
+// }
+
+// Car.prototype.getBrand = function () {
+//   return this.brand;
+// };
+
+// let car = new Car("Honda");
+// console.log(car.getBrand()); // Honda
+
+// var bmw = Car("BMW");
+// console.log(bmw.brand); // Uncaught Error: Must use the new operator to call the function
+
+// function getBrand(prefix) {
+//   console.log(prefix + this.brand);
+// }
+
+// let honda = {
+//   brand: "Honda",
+// };
+// let audi = {
+//   brand: "Audi",
+// };
+// getBrand("Its a "); /// Its a undefined
+// getBrand.call(honda, "It's a "); // It's a Honda
+// getBrand.call(audi, "It's an "); // It's an Audi
+
+// const myObject = {
+//   myMethod(items) {
+//     console.log(this); // logs myObject
+//     const callback = () => {
+//       console.log(this); // logs myObject
+//     };
+//     items.forEach(callback);
+//   },
+// };
+// myObject.myMethod([1, 2, 3]);
+
+// const myObject = {
+//   name: "Sayak",
+//   normal() {
+//     console.log(this);
+//     const newArrow = () => console.log(this); // myObject or newObject
+//     newArrow();
+//   },
+//   myMethod: function () {
+//     console.log(this);
+//   },
+//   myArrowMethod: () => {
+//     console.log(this);
+//   },
+// };
+// myObject.normal(); // myObject
+// myObject.myMethod(); // myObject
+// myObject.myArrowMethod(); // Window
+
+// const newObject = {
+//   name: "Ghosh",
+// };
+
+// myObject.normal.call(newObject); // newObject
+// myObject.myMethod.call(newObject); // newObject
+// myObject.myArrowMethod.call(newObject); // Window
+
+// const obj = {
+//   value: "abc",
+//   createArrowFn: function () {
+//     return () => console.log(this);
+//   },
+// };
+// const arrowFn = obj.createArrowFn();
+// arrowFn(); // -> { value: 'abc', createArrowFn: ƒ }
+
+// let obj = {
+//   fname: "Sayak",
+//   sing() {
+//     return "lalalala " + this.fname;
+//   },
+// };
+
+// console.log(obj.sing()); // // lalalala Sayak
+
+// let obj = {
+//   fname: "Sayak",
+//   sing: () => {
+//     return "lalalala " + this.fname;
+//   },
+// };
+
+// console.log(obj.sing()); // lalalala undefined
+
+// let obj = {
+//   fname: "Sayak",
+//   sing: () => {
+//     return "lalalala " + obj.fname;
+//   },
+// };
+
+// console.log(obj.sing()); // lalalala Sayak
+
+// var myCar = {
+//   color: "blue",
+//   logColor: function () {
+//     var self = this;
+
+//     console.log("In logColor - this.color: " + this.color); // blue
+//     console.log("In logColor - self.color: " + self.color); // blue
+//     (function () {
+//       console.log("Inner - this.color: " + this.color); // undefined
+//       console.log("Inner - self.color: " + self.color); // blue
+//     })();
+//   },
+// };
+
+// myCar.logColor();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// setTimeout closure
+// for (var i = 1; i <= 5; i++) {
+//   (function () {
+//     var j = i;
+//     setTimeout(function timer() {
+//       console.log(j);
+//     }, j * 1000);
+//   })();
+// }
+
+// for (var i = 1; i <= 5; i++) {
+//   let j = i;
+//   setTimeout(function timer() {
+//     console.log(j);
+//   }, j * 1000);
+// }
+
+// for (let i = 1; i <= 5; i++) {
+//   setTimeout(function timer() {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// for (var i = 1; i <= 5; i++) {
+//   setTimeout(console.log, i * 1000, i);
+// }
+
+// function big() {
+//   setTimeout(() => {
+//     console.log("big");
+//   }, 1000);
+//   for (let i = 0; i < 10000000000; i++) {
+//     // do nothing
+//   }
+// }
+// big();
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// naming loops and scopes
+// loop1: for (let i = 0; i < 5; i++) {
+//   loop2: for (let j = 0; j < 5; j++) {
+//     if (i === 1) {
+//       break loop1;
+//     }
+//     console.log("i = ", i, ", j = ", j);
+//   }
+// }
+
+// name: {
+//   console.log("before");
+//   break name;
+//   console.log("after");
+// }
+
+// "use strict";
+// const person = Object.freeze({
+//   name: "Sayak",
+//   age: 23,
+// });
+
+// console.log(person);
+// person.name = "Ghosh"; // Uncaught TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+// console.log(person);
+
+// "use strict";
+// const person = Object.freeze({
+//   name: "Sayak",
+//   age: 23,
+//   address: {
+//     city: "Kolkata",
+//   },
+//   skills: ["JavaScript", "React", "Node"],
+// });
+// person.hobbies = "music"; // Uncaught TypeError: Cannot add property hobbies, object is not extensible
+// person.address.district = "Howrah"; // address: {city: 'Delhi', district: 'Howrah'}
+// delete person.name; // Uncaught TypeError: Cannot delete property 'name' of #<Object>
+// console.log(person);
+// person.address.city = "Delhi"; // address: {city: 'Delhi'}
+// person.skills.push("Python"); // skills: ['JavaScript', 'React', 'Node', 'Python']
+// console.log(person);
+
+// const person2 = Object.freeze({
+//   name: "Sayak",
+//   age: 23,
+//   address: Object.freeze({
+//     city: "Kolkata",
+//   }),
+//   skills: Object.freeze(["JavaScript", "React", "Node"]),
+// });
+
+// console.log(person2);
+// person2.address.city = "Delhi"; // TypeError: Cannot assign to read only property 'city' of object '#<Object>'
+// person2.skills.push("Python"); // script.js:1570 Uncaught TypeError: Cannot add property 3, object is not extensible  at Array.push (<anonymous>)
+// console.log(person2);
+
+/* 
+  Object.freeze doesn't let you add, change or delete any property but you can add, change or delete nested properties
+  Object.seal doesn't let you add or delete any property but you can change existing properties
+*/
+
+// "use strict";
+// const person = Object.seal({
+//   name: "Sayak",
+//   age: 23,
+//   address: {
+//     city: "Kolkata",
+//   },
+//   skills: ["JavaScript", "React", "Node"],
+// });
+// person.hobbies = "music"; // Uncaught TypeError: Cannot add property hobbies, object is not extensible
+// delete person.name; // Uncaught TypeError: Cannot delete property 'name' of #<Object>
+// console.log(person);
+// person.address.city = "Delhi"; // address: {city: 'Delhi'}
+// person.skills.push("Python"); // skills: ['JavaScript', 'React', 'Node', 'Python']
+// console.log(person);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Pass by value - for primitive values
+
+// function Passbyvalue(a, b) {
+//   let tmp;
+//   tmp = b;
+//   b = a;
+//   a = tmp;
+//   console.log(`Inside Pass by value
+//         function -> a = ${a} b = ${b}`);
+// }
+
+// let a = 1;
+// let b = 2;
+// console.log(`Before calling Pass by value
+//         Function -> a = ${a} b = ${b}`);
+
+// Passbyvalue(a, b);
+
+// console.log(`After calling Pass by value
+//        Function -> a =${a} b = ${b}`);
+
+// //Pass by reference - for arrays and objects(including functions)
+
+// function PassbyReference(obj) {
+//   let tmp = obj.a;
+//   obj.a = obj.b;
+//   obj.b = tmp;
+
+//   console.log(`Inside Pass By Reference
+//         Function -> a = ${obj.a} b = ${obj.b}`);
+// }
+
+// let obj = {
+//   a: 10,
+//   b: 20,
+// };
+// console.log(`Before calling Pass By Reference
+//     Function -> a = ${obj.a} b = ${obj.b}`);
+
+// PassbyReference(obj);
+
+// console.log(`After calling Pass By Reference
+//     Function -> a = ${obj.a} b = ${obj.b}`);
+
+// Example 1: Updating the object reference in the function.
+
+// function PassbyReference(obj) {
+//   // Changing the reference of the object
+//   obj = {
+//     a: 10,
+//     b: 20,
+//     c: "GEEKSFORGEEKS",
+//   };
+//   console.log(`Inside Pass by
+//         Reference Function -> obj `);
+
+//   console.log(obj);
+// }
+
+// let obj = {
+//   a: 10,
+//   b: 20,
+// };
+// console.log(`Updating the object reference -> `);
+// console.log(`Before calling Pass By
+//         Reference Function -> obj`);
+// console.log(obj);
+
+// PassbyReference(obj);
+// console.log(`After calling Pass By
+//         Reference Function -> obj`);
+// console.log(obj);
+
+// Example 2: Mutating the original Object.
+
+// function PassbyReference(obj) {
+//   // Mutating the origanal object
+//   obj.c = "GEEKSFORGEEKS";
+//   console.log(`Inside Pass by
+//         Reference Function -> obj `);
+//   console.log(obj);
+// }
+
+// let obj = {
+//   a: 10,
+//   b: 20,
+// };
+// console.log(`Mutating the origanal object -> `);
+// console.log(`Before calling Pass By
+//         Reference Function -> obj`);
+// console.log(obj);
+
+// PassbyReference(obj);
+// console.log(`After calling Pass By
+//         Reference Function -> obj`);
+// console.log(obj);
+
+// "use strict";
+// function PassbyReference(a) {
+//   // Mutating the origanal array
+//   a[0] = ["GEEKSFORGEEKS"];
+//   a = ["GEEKSFORGEEKS"]; // doesn't work
+//   console.log(`Inside Pass by
+//         Reference Function -> a `);
+//   console.log(a);
+// }
+
+// let arr = [1, 2, 3, 4];
+// console.log(`Mutating the origanal array -> `);
+// console.log(`Before calling Pass By
+//         Reference Function -> arr`);
+// console.log(arr);
+
+// PassbyReference(arr);
+// console.log(`After calling Pass By
+//         Reference Function -> arr`);
+// console.log(arr);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// JSON parse and stringify polyfill
+
+// function looseJsonParse(obj) {
+//   return Function('"use strict";return (' + obj + ")")();
+// }
+// console.log(looseJsonParse("{a:(4-1), b:function(){}, c:new Date()}"));
+
+// function parseJSON(sJSON) {
+//   return eval(`(${sJSON})`);
+// }
+
+// let stringify = (function () {
+//   var toString = Object.prototype.toString;
+//   var isArray =
+//     Array.isArray ||
+//     function (a) {
+//       return toString.call(a) === "[object Array]";
+//     };
+//   var escMap = {
+//     '"': '\\"',
+//     "\\": "\\\\",
+//     "\b": "\\b",
+//     "\f": "\\f",
+//     "\n": "\\n",
+//     "\r": "\\r",
+//     "\t": "\\t",
+//   };
+//   var escFunc = function (m) {
+//     return (
+//       escMap[m] || "\\u" + (m.charCodeAt(0) + 0x10000).toString(16).substr(1)
+//     );
+//   };
+//   var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g;
+//   return function stringify(value) {
+//     if (value == null) {
+//       return "null";
+//     } else if (typeof value === "number") {
+//       return isFinite(value) ? value.toString() : "null";
+//     } else if (typeof value === "boolean") {
+//       return value.toString();
+//     } else if (typeof value === "object") {
+//       if (typeof value.toJSON === "function") {
+//         return stringify(value.toJSON());
+//       } else if (isArray(value)) {
+//         var res = "[";
+//         for (var i = 0; i < value.length; i++)
+//           res += (i ? ", " : "") + stringify(value[i]);
+//         return res + "]";
+//       } else if (toString.call(value) === "[object Object]") {
+//         var tmp = [];
+//         for (var k in value) {
+//           if (value.hasOwnProperty(k))
+//             tmp.push(stringify(k) + ": " + stringify(value[k]));
+//         }
+//         return "{" + tmp.join(", ") + "}";
+//       }
+//     }
+//     return '"' + value.toString().replace(escRE, escFunc) + '"';
+//   };
+// })();
+
+// const obj = {
+//   a: 1,
+//   b: "Go",
+// };
+
+// console.log(stringify(obj));
+// console.log(parseJSON(stringify(obj)));
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function mySetTimeout(callback, delay) {
+//   if (typeof callback != "function")
+//     throw new Error("callback should be a function");
+//   if (typeof delay != "number" || delay < 0)
+//     throw new Error("delay should be a positive number");
+//   let startTime = Date.now();
+//   function check() {
+//     if (Date.now() >= startTime + delay) callback();
+//     else requestIdleCallback(check);
+//   }
+//   requestIdleCallback(check);
+// }
+
+// mySetTimeout(() => console.log("Hello"), 50000000000000000);
+
+// setInterval polyfill
+
+// function createSetIntervalPolyfill() {
+//   // closure
+//   var intervalID = 0;
+//   var intervalMap = {};
+
+//   function setIntervalPolyfill(callbackFn, delay = 0, ...args) {
+//     if (typeof callbackFn !== "function") {
+//       throw new TypeError("'callback' should be a function");
+//     }
+
+//     // Unique
+//     var id = intervalID++;
+
+//     function repeat() {
+//       intervalMap[id] = setTimeout(() => {
+//         callbackFn(...args);
+//         // Terminating
+//         if (intervalMap[id]) {
+//           repeat();
+//         }
+//       }, delay);
+//     }
+//     repeat();
+
+//     return id;
+//   }
+
+//   function clearIntervalPolyfill(intervalID) {
+//     clearTimeout(intervalMap[intervalID]);
+//     delete intervalMap[intervalID];
+//   }
+
+//   return {
+//     setIntervalPolyfill,
+//     clearIntervalPolyfill,
+//   };
+// }
+
+// const { setIntervalPolyfill, clearIntervalPolyfill } =
+//   createSetIntervalPolyfill();
+
+// let counter = 0;
+// let intervalID;
+
+// function greeting(name) {
+//   counter++;
+//   console.log("Hello", name);
+//   if (counter >= 3) {
+//     clearIntervalPolyfill(intervalID);
+//   }
+// }
+
+// intervalID = setIntervalPolyfill(greeting, 1000, "Sayak");
+
+// (function () {
+//   // List for mainataining callbacks corresponding to their id's
+//   let timers = {};
+
+//   // generates a new id for every mySetTimeout call
+//   function generateNewId() {
+//     let r = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+//     while (timers.hasOwnProperty(r)) {
+//       // check weather the id already exists
+//       r = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+//     }
+//     return r;
+//   }
+
+//   function check() {
+//     let t = Date.now();
+//     // loop over all the timers
+//     for (let timerId in timers) {
+//       if (timers.hasOwnProperty(timerId) && t > timers[timerId].time) {
+//         // check if the current timer needs to be executed
+//         timers[timerId].callback();
+//         myClearTimeout(timerId);
+//       }
+//     }
+//     requestIdleCallback(check);
+//   }
+
+//   window.mySetTimeout = function (callback, delay) {
+//     if (typeof callback != "function")
+//       throw new Error("callback should be a function");
+//     if (typeof delay != "number" || delay < 0)
+//       throw new Error("delay should be a positive number");
+
+//     // generate a new id
+//     let newId = generateNewId();
+
+//     // add it to the list of timers
+//     timers[newId] = {
+//       callback: callback,
+//       time: Date.now() + delay, // add the time after which callback needs to be executed
+//     };
+
+//     // return the id to the consumer for referencing it for later use.
+//     return newId;
+//   };
+
+//   // cancels the callback execution for an id.
+//   window.myClearTimeout = function (id) {
+//     if (timers.hasOwnProperty(id)) delete timers[id]; // if id exists just delete the timer and in the next check this timer won't be there
+//   };
+
+//   // call the checking process so that callbacks get executed.
+//   requestIdleCallback(check);
+// })();
+
+// let id = mySetTimeout(() => console.log("Hello"), 5000);
+// myClearTimeout(id);
+// console.log(id, Date.now());
+
+//The requestIdleCallback allows us to enqueue a callback in the message queue of the event loop.
+// In this way, the callback does not get executed straight away.
+// If an event like pressing a button would have come in-between,
+// then it will be executed first because the event will be at higher priority in the message queue.
+
+// const fun = () => console.log("Hello");
+// requestIdleCallback(fun);
+// console.log("hehe");
+
+// // hehe
+// // Hello
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function to run for 5000ms
+// function takeTime(delay) {
+//   let startTime = Date.now();
+//   let endTime = Date.now();
+//   while (endTime < startTime + delay) {
+//     endTime = Date.now();
+//   }
+// }
+// let func = (i) => console.log(i);
+// setInterval
+//In the edge case, if the function always executes longer than delay ms, then the calls will happen without a pause at all.
+
+// let i = 1;
+// setInterval(function () {
+//   takeTime(5000);
+//   func(i++);
+// }, 1000);
+
+// nested setTimeout for same execution as setInterval
+// takes 5000ms to run the function 'run' inside setTimeout and then waits for 3000ms and runs the function 'run' again
+// The nested setTimeout guarantees the fixed delay (here 100ms).
+// let j = 1;
+// setTimeout(function run() {
+//   takeTime(5000);
+//   func(j++);
+//   setTimeout(run, 3000);
+// }, 3000);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* requestAnimationFrame() */
+
+// previously: setInterval() and Element.animate()
+
+// Benefits of reqestAnimationFrame:
+// * The browser can optimize it, so animations will be smoother
+// * Animations in inactive tabs will stop, allowing the CPU to chill
+// * More battery-friendly
+
+// let start;
+// let stopId;
+// let progress;
+// let toggle = false;
+
+// let element = document.getElementById("element");
+// element.setAttribute(
+//   "style",
+//   "background: blue; position: absolute; width: 50px; height: 50px; top: 50px;",
+// );
+
+// function step(timestamp) {
+//   if (!start || progress > 400) start = timestamp;
+//   progress = (timestamp - start) / 10 + 50;
+//   element.style.top = progress + "px";
+//   stopId = window.requestAnimationFrame(step);
+// }
+
+// function toggleAnimation() {
+//   if (!toggle) {
+//     toggle = true;
+//     window.requestAnimationFrame(step);
+//   } else {
+//     toggle = false;
+//     cancelAnimationFrame(stopId);
+//   }
+// }
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// var value = 0;
+// var iterationCount = 100000000;
+// var req = window.requestIdleCallback;
+
+// var workBtn = document.getElementById("work");
+// var interactionBtn = document.getElementById("interaction");
+// var playground = document.getElementById("play");
+
+// var expensiveCalculation = function () {
+//   console.log(iterationCount);
+//   while (iterationCount > 0) {
+//     value = Math.random() < 0.5 ? value + Math.random() : value + Math.random();
+
+//     iterationCount = iterationCount - 1;
+//   }
+// };
+
+// workBtn.addEventListener("click", expensiveCalculation);
+
+// interactionBtn.addEventListener("click", function (event) {
+//   if (playground.style.backgroundColor === "green") {
+//     playground.style.backgroundColor = "red";
+//   } else {
+//     playground.style.backgroundColor = "green";
+//   }
+// });
+
+// ---
+
+// var value = 0;
+// var iterationCount = 10000000;
+// var req = window.requestIdleCallback;
+
+// var workBtn = document.getElementById("work");
+// var interactionBtn = document.getElementById("interaction");
+// var playground = document.getElementById("play");
+
+// var expensiveCalculation = function (deadline) {
+//   console.log(deadline, deadline.timeRemaining(), iterationCount);
+//   while (iterationCount > 0 && deadline.timeRemaining() > 1) {
+//     value = Math.random() < 0.5 ? value + Math.random() : value + Math.random();
+
+//     iterationCount = iterationCount - 1;
+//   }
+
+//   req(expensiveCalculation);
+// };
+
+// workBtn.addEventListener("click", function (event) {
+//   req(expensiveCalculation);
+// });
+
+// interactionBtn.addEventListener("click", function (event) {
+//   if (playground.style.backgroundColor === "green") {
+//     playground.style.backgroundColor = "red";
+//   } else {
+//     playground.style.backgroundColor = "green";
+//   }
+// });
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// difference b/w function statement and a function expression is that function statement is hoisted and function expression is not hoisted.
+// a(); // a
+// b(); // Uncaught TypeError: b is not a function
+
+// // function statement aka function declaration
+// function a() {
+//   console.log("a");
+// }
+
+// // function expression
+// var b = function () {
+//   console.log("b");
+// };
+
+// // Anonymous function
+// function () { // Uncaught SyntaxError: Function statements require a function name
+//   console.log("c");
+// }
+
+// // Named function expression
+// var c = function xyz() {
+//   console.log("c");
+//   console.log(xyz); // ƒ xyz() { console.log("c"); console.log(xyz);}
+// };
+// c(); // c
+// xyz(); // Uncaught ReferenceError: xyz is not defined
+
+// Difference b/w parameters and arguments
+// function foo(x, y, z) {
+//   // x, y, z are parameters
+//   console.log(x, y, z);
+//   console.log(arguments); // arguments is an array-like object // Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+// }
+// foo(1, 2, 3, 4, 5); // 1 2 3 are arguments
+
+// First Class Functions - First Class Citizens
+// The ability of functions to be used as values and to pass a function as an argument to another function and to return the function from the function.
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// memoize a function
+
+// const memoize = (fn) => {
+//   let cache = {};
+//   return (...args) => {
+//     let argsCache = JSON.stringify(args);
+//     if (!cache[argsCache]) {
+//       cache[argsCache] = fn(...args);
+//     }
+//     return cache[argsCache];
+//   };
+// };
+
+// const mul = (a, b, c) => {
+//   for (let i = 0; i < 1e9; i++);
+//   return a * b * c;
+// };
+
+// const memoizedMul = memoize(mul);
+
+// console.time("mul1");
+// console.log(memoizedMul(2, 3, 2));
+// console.timeEnd("mul1");
+// // mul1: 1179.956787109375 ms
+
+// console.time("mul2");
+// console.log(memoizedMul(2, 3, 2));
+// console.timeEnd("mul2");
+// // mul2: 0.066162109375 ms
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// slice
+
+// const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+// console.log(animals.slice(2));
+// // expected output: Array ["camel", "duck", "elephant"]
+
+// console.log(animals.slice(2, 4));
+// // expected output: Array ["camel", "duck"]
+
+// console.log(animals.slice(1, 5));
+// // expected output: Array ["bison", "camel", "duck", "elephant"]
+
+// console.log(animals.slice(-2));
+// // expected output: Array ["duck", "elephant"]
+
+// console.log(animals.slice(2, -1));
+// // expected output: Array ["camel", "duck"]
+
+// const slicedAnimals = animals.slice();
+
+// console.log(slicedAnimals);
+// // expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+// console.log(animals === slicedAnimals);
+// // false
+
+// -
+
+// // Using slice, create newCar from myCar.
+// let myHonda = { color: "red", wheels: 4, engine: { cylinders: 4, size: 2.2 } };
+// let myCar = [myHonda, 2, "cherry condition", "purchased 1997"];
+// let newCar = myCar.slice(0, 2);
+
+// // Display the values of myCar, newCar, and the color of myHonda
+// //  referenced from both arrays.
+// console.log("myCar = ", myCar);
+// console.log("newCar = ", newCar);
+// console.log("myCar[0].color = " + myCar[0].color);
+// console.log("newCar[0].color = " + newCar[0].color);
+
+// // Change the color of myHonda.
+// myHonda.color = "purple";
+// console.log("The new color of my Honda is " + myHonda.color);
+
+// // Display the color of myHonda referenced from both arrays.
+// console.log("myCar[0].color = " + myCar[0].color);
+// console.log("newCar[0].color = " + newCar[0].color);
+
+// Array.prototype.mySlice = function (start, end) {
+//   let newArray = [];
+//   if (start === undefined) {
+//     start = 0;
+//   }
+//   if (end === undefined) {
+//     end = this.length;
+//   }
+//   for (let i = start; i < end; i++) {
+//     newArray.push(this[i]);
+//   }
+//   return newArray;
+// };
+
+// Array.prototype.customSlice = function (begin, end) {
+//   var len = this.length;
+//   var size;
+//   var start = begin || 0;
+
+//   start = start >= 0 ? start : Math.max(0, len + start);
+//   end = end || len;
+
+//   var up_to = typeof end == "number" ? Math.min(end, len) : len;
+//   if (end < 0) up_to = len + end;
+
+//   // actual expected size of the slice
+//   size = up_to - start;
+
+//   // if size is negative it should return an empty array
+//   if (size <= 0) size = 0;
+
+//   var typed_array_constructor = this.constructor;
+//   var cloned = new typed_array_constructor(size);
+
+//   for (var i = 0; i < size; i++) {
+//     cloned[i] = this[start + i];
+//   }
+
+//   return cloned;
+// };
+
+// const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+// console.log(animals.customSlice(2));
+// // expected output: Array ["camel", "duck", "elephant"]
+
+// console.log(animals.customSlice(2, 4));
+// // expected output: Array ["camel", "duck"]
+
+// console.log(animals.customSlice(1, 5));
+// // expected output: Array ["bison", "camel", "duck", "elephant"]
+
+// console.log(animals.customSlice(-2));
+// // expected output: Array ["duck", "elephant"]
+
+// console.log(animals.customSlice(2, -1));
+// // expected output: Array ["camel", "duck"]
+
+// const slicedAnimals = animals.customSlice();
+
+// console.log(slicedAnimals);
+// // expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+// console.log(animals === slicedAnimals);
+// // false
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// console.log(null);
+// console.log(undefined);
+// console.log(NaN);
+// console.log(Infinity);
+// console.log(-Infinity);
+// console.log(null + 1);
+// console.log(undefined + 1);
+// console.log(NaN + 1);
+// console.log(null === undefined, null == undefined);
+// console.log(null == null, null == null);
+// console.log(null === NaN, NaN == undefined);
+// console.log(typeof null);
+// console.log(typeof undefined);
+// console.log(typeof NaN);
+// console.log(NaN === NaN, NaN == NaN);
+// console.log(Math.sqrt(-1));
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let res = 0;
+
+// arr.forEach((a) => {
+//   res = res + a;
+// });
+
+// console.log(res);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const createPromise = (resolvePromise, message, delay = 0) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(resolvePromise ? resolve : reject, delay, message);
+//   });
+// };
+
+// const pErr = createPromise(false, "Error", 2000);
+// const pFast = createPromise(false, "Success", 2000);
+// const pSlow = createPromise(true, "Success", 5000);
+
+// Promise.all([pErr, pFast, pSlow])
+//   .then((result) => console.log("all --> ", result))
+//   .catch((err) => console.log("err --> ", err));
+
+// Promise.allSettled([pErr, pFast, pSlow])
+//   .then((result) => console.log("allSettled --> ", result))
+//   .catch((err) => console.log("err --> ", err));
+
+// Promise.race([pErr, pFast, pSlow])
+//   .then((result) => console.log("race --> ", result))
+//   .catch((err) => console.log("err --> ", err));
+
+// Promise.any([pErr, pFast, pSlow])
+//   .then((result) => console.log("any --> ", result))
+//   .catch((err) => console.log("err --> ", err));
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
