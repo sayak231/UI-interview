@@ -10,11 +10,13 @@
 // []==[] or []===[] //false, refer different objects in memory
 // {}=={} or {}==={} //false, refer different objects in memory
 
-"use strict";
-function restParams(...args) {
-  console.log(args);
-}
-restParams(1, 2, 3, 4, 5);
+//----------------------------------------------------------------------------------------------------------------------
+
+// "use strict";
+// function restParams(...args) {
+//   console.log(args);
+// }
+// restParams(1, 2, 3, 4, 5);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -27,18 +29,18 @@ restParams(1, 2, 3, 4, 5);
 
 // clear interval after a counter change
 
-function outer() {
-  let count = 0;
-  function a() {
-    console.log(count);
-    count++;
-    if (count > 5) {
-      clearInterval(interval);
-    }
-  }
-  let interval = setInterval(a, 1000);
-}
-outer();
+// function outer() {
+//   let count = 0;
+//   function a() {
+//     console.log(count);
+//     count++;
+//     if (count > 5) {
+//       clearInterval(interval);
+//     }
+//   }
+//   let interval = setInterval(a, 1000);
+// }
+// outer();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -73,74 +75,74 @@ outer();
 
 // output - empty index of array
 
-var myChars = ["a", "b", "c", "d"];
-delete myChars[0];
-console.log(myChars);
-console.log(myChars[0]);
-console.log(myChars.length);
+// var myChars = ["a", "b", "c", "d"];
+// delete myChars[0];
+// console.log(myChars);
+// console.log(myChars[0]);
+// console.log(myChars.length);
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-const obj = {
-  prop1: function () {
-    return 0;
-  },
-  prop2() {
-    return 1;
-  },
-  ["prop" + 3]() {
-    return 2;
-  },
-};
+// const obj = {
+//   prop1: function () {
+//     return 0;
+//   },
+//   prop2() {
+//     return 1;
+//   },
+//   ["prop" + 3]() {
+//     return 2;
+//   },
+// };
 
-console.log(obj.prop1()); // 0
-console.log(obj.prop2()); // 1
-console.log(obj.prop3()); // 2
+// console.log(obj.prop1()); // 0
+// console.log(obj.prop2()); // 1
+// console.log(obj.prop3()); // 2
 
 // ----------------------------------------------------------------------------------------------------------------------
 
 // == v/s === operator
 
-console.log(10 == [10]);
-console.log(10 == [[[[[[[10]]]]]]]);
+// console.log(10 == [10]);
+// console.log(10 == [[[[[[[10]]]]]]]);
 
-//Equivalent to
-console.log(10 === Number([10].valueOf().toString())); // 10
-
-// ----------------------------------------------------------------------------------------------------------------------
-
-console.log(true || 2); // true
-console.log(true && 2); // 2
-console.log(2 && true); // true
-console.log(2 || true); // 2
-
-console.log(false || 2); // 2
-console.log(false && 2); // false
-console.log(2 && false); // false
-console.log(2 || false); // 2
+// //Equivalent to
+// console.log(10 === Number([10].valueOf().toString())); // 10
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-function test() {
-  const name = "Sayak";
+// console.log(true || 2); // true
+// console.log(true && 2); // 2
+// console.log(2 && true); // true
+// console.log(2 || true); // 2
 
-  console.log(typeof name === "object"); // false
-  console.log(typeof name === "string"); // true
+// console.log(false || 2); // 2
+// console.log(false && 2); // false
+// console.log(2 && false); // false
+// console.log(2 || false); // 2
 
-  console.log(!(typeof name === "object")); // true
-  console.log(!(typeof name === "string")); // false
+// ----------------------------------------------------------------------------------------------------------------------
 
-  console.log(!typeof name === "object"); // false
-  console.log(!typeof name === "string"); // false
+// function test() {
+//   const name = "Sayak";
 
-  console.log(!false); // true
-  console.log(!true); // false
+//   console.log(typeof name === "object"); // false
+//   console.log(typeof name === "string"); // true
 
-  // typeof name = 'string'
-  // !'string' = false
-  // false === 'object' = false
-}
-test();
+//   console.log(!(typeof name === "object")); // true
+//   console.log(!(typeof name === "string")); // false
+
+//   console.log(!typeof name === "object"); // false
+//   console.log(!typeof name === "string"); // false
+
+//   console.log(!false); // true
+//   console.log(!true); // false
+
+//   // typeof name = 'string'
+//   // !'string' = false
+//   // false === 'object' = false
+// }
+// test();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -180,54 +182,54 @@ test();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-const arrReduce = [5, 5, 5, 5, 5];
-const ansReduce = arrReduce.reduce((acc, val) => acc + val, 5);
-console.log(ansReduce);
+// const arrReduce = [5, 5, 5, 5, 5];
+// const ansReduce = arrReduce.reduce((acc, val) => acc + val, 5);
+// console.log(ansReduce);
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-const objSpread = {
-  a: "new",
-};
+// const objSpread = {
+//   a: "new",
+// };
 
-objSpread.a = { ...{ name: objSpread.a } };
+// objSpread.a = { ...{ name: objSpread.a } };
 
-console.log(objSpread);
-
-// ----------------------------------------------------------------------------------------------------------------------
-
-let x1 = 0;
-
-if (true) {
-  x1 = 1;
-}
-
-console.log(x1); // 1
-
-if (false) {
-  var test = 10;
-}
-
-console.log(test); // undefined
+// console.log(objSpread);
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-console.log(null);
-console.log(undefined);
-console.log(NaN);
-console.log(Infinity);
-console.log(-Infinity);
-console.log(null + 1);
-console.log(undefined + 1);
-console.log(NaN + 1);
-console.log(null === undefined, null == undefined);
-console.log(null == null, null == null);
-console.log(null === NaN, NaN == undefined);
-console.log(typeof null);
-console.log(typeof undefined);
-console.log(typeof NaN);
-console.log(NaN === NaN, NaN == NaN);
-console.log(Math.sqrt(-1));
+// let x1 = 0;
+
+// if (true) {
+//   x1 = 1;
+// }
+
+// console.log(x1); // 1
+
+// if (false) {
+//   var test = 10;
+// }
+
+// console.log(test); // undefined
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+// console.log(null);
+// console.log(undefined);
+// console.log(NaN);
+// console.log(Infinity);
+// console.log(-Infinity);
+// console.log(null + 1);
+// console.log(undefined + 1);
+// console.log(NaN + 1);
+// console.log(null === undefined, null == undefined);
+// console.log(null == null, null == null);
+// console.log(null === NaN, NaN == undefined);
+// console.log(typeof null);
+// console.log(typeof undefined);
+// console.log(typeof NaN);
+// console.log(NaN === NaN, NaN == NaN);
+// console.log(Math.sqrt(-1));
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -261,70 +263,70 @@ console.log(Math.sqrt(-1));
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-// naming loops and scopes
-loop1: for (let i = 0; i < 5; i++) {
-  loop2: for (let j = 0; j < 5; j++) {
-    if (i === 1) {
-      break loop1;
-    }
-    console.log("i = ", i, ", j = ", j);
-  }
-}
+// // naming loops and scopes
+// loop1: for (let i = 0; i < 5; i++) {
+//   loop2: for (let j = 0; j < 5; j++) {
+//     if (i === 1) {
+//       break loop1;
+//     }
+//     console.log("i = ", i, ", j = ", j);
+//   }
+// }
 
-name: {
-  console.log("before");
-  break name;
-  console.log("after");
-}
+// name: {
+//   console.log("before");
+//   break name;
+//   console.log("after");
+// }
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-(async function showIndexedDBSpace() {
-  const quota = await navigator.storage.estimate();
-  const totalSpace = quota.quota;
-  const usedSpace = quota.usage;
-  console.log(quota, totalSpace, usedSpace);
-})();
+// (async function showIndexedDBSpace() {
+//   const quota = await navigator.storage.estimate();
+//   const totalSpace = quota.quota;
+//   const usedSpace = quota.usage;
+//   console.log(quota, totalSpace, usedSpace);
+// })();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
 // Tricky interview ques
 // 1.
 
-(function apple() {
-  const arr = [1, 2, 3, 4, 5];
-  arr.length = 3;
-  console.log(arr); //[1, 2, 3]
-  arr.length = 5;
-  console.log(arr); // [1, 2, 3, empty × 2]
-})();
+// (function apple() {
+//   const arr = [1, 2, 3, 4, 5];
+//   arr.length = 3;
+//   console.log(arr); //[1, 2, 3]
+//   arr.length = 5;
+//   console.log(arr); // [1, 2, 3, empty × 2]
+// })();
 
 // 2.
 
-let checkOutput = (x) => {
-  // delete x;
-  return x;
-};
-console.log(checkOutput(0)); // 0
+// let checkOutput = (x) => {
+//   delete x;
+//   return x;
+// };
+// console.log(checkOutput(0)); // 0
 
 // 3.
 
-Promise.resolve(0)
-  .then((x) => x + 1)
-  .then((x) => x + 2)
-  .then((x) => {})
-  .then((x) => x + 3)
-  .then((x) => console.log(x))
-  .catch(console.error); // NaN
+// Promise.resolve(0)
+//   .then((x) => x + 1)
+//   .then((x) => x + 2)
+//   .then((x) => {})
+//   .then((x) => x + 3)
+//   .then((x) => console.log(x))
+//   .catch(console.error); // NaN
 
 // 4.
 
-// encodes characters such as ?,=,/,&,:
-console.log(`?x=${encodeURIComponent("test?")}`);
-// expected output: "?x=test%3F"
+// // encodes characters such as ?,=,/,&,:
+// console.log(`?x=${encodeURIComponent("test?")}`);
+// // expected output: "?x=test%3F"
 
-console.log(`?x=${encodeURIComponent("шеллы")}`);
-// expected output: "?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"
+// console.log(`?x=${encodeURIComponent("шеллы")}`);
+// // expected output: "?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"
 
 // we have some other ways as well to persist the state in react.
 // 1- Local Storage
@@ -335,29 +337,29 @@ console.log(`?x=${encodeURIComponent("шеллы")}`);
 // 5.
 
 // Destructure degree
-const student = {
-  name: "Sayak",
-  education: {
-    degree: "B.Tech",
-    degree1: "B.Tech",
-  },
-};
+// const student = {
+//   name: "Sayak",
+//   education: {
+//     degree: "B.Tech",
+//     degree1: "B.Tech",
+//   },
+// };
 
-const { education } = student;
-const { degree } = education;
+// const { education } = student;
+// const { degree } = education;
 
-// Second way is nested destructing
-const {
-  education: { degree1 },
-} = student;
+// // Second way is nested destructing
+// const {
+//   education: { degree1 },
+// } = student;
 
 // 6.
 
-console.log(["1", "7", "11"].map(parseInt));
-// parseInt expects two arguments, 1st is the string, 2nd is the radix or base
-// So here '1' base 0 is 1, '7' base 1 is NaN, because base1 is illegal, and '11' base 2 is 3 - basically converting binary '11' to decimal, i.e., 3
-console.log(["1", "7", "11"].map(Number));
-console.log(parseInt("A1", 16)); // Hex
+// console.log(["1", "7", "11"].map(parseInt));
+// // parseInt expects two arguments, 1st is the string, 2nd is the radix or base
+// // So here '1' base 0 is 1, '7' base 1 is NaN, because base1 is illegal, and '11' base 2 is 3 - basically converting binary '11' to decimal, i.e., 3
+// console.log(["1", "7", "11"].map(Number));
+// console.log(parseInt("A1", 16)); // Hex
 
 // 7.
 
@@ -372,22 +374,22 @@ console.log(parseInt("A1", 16)); // Hex
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-console.log(Math.max()); // -Infinity
-console.log(Math.min()); // Infinity
+// console.log(Math.max()); // -Infinity
+// console.log(Math.min()); // Infinity
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-const A = (b) => {
-  let a = 10;
-  return () => {
-    console.log(a + b, this);
-  };
-};
+// const A = (b) => {
+//   let a = 10;
+//   return () => {
+//     console.log(a + b, this);
+//   };
+// };
 
-let x11 = A(2);
-let y11 = A(4);
+// let x11 = A(2);
+// let y11 = A(4);
 
-console.log(x11(), y11());
+// console.log(x11(), y11());
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -399,74 +401,89 @@ console.log(x11(), y11());
 // // which returns the right-hand side operand if the left operand
 // // is any falsy value, not only null or undefined.
 
-console.log(null ?? true); // true
-console.log(false ?? true); // false
-console.log(undefined ?? true); // true
+// console.log(null ?? true); // true
+// console.log(false ?? true); // false
+// console.log(undefined ?? true); // true
+// console.log("" || true); // true
 
-let ax11 = null;
-console.log(ax11 ?? "h");
+// let ax11 = null;
+// console.log(ax11 ?? "h");
 
 // ----------------------------------------------------------------------------------------------------------------------
 
 // Call Stack checking
-function subtractTwo(num) {
-  return num - 2;
-}
+// function subtractTwo(num) {
+//   return num - 2;
+// }
 
-function calculate(num) {
-  num = num + 2;
-  return subtractTwo(num);
-}
+// function calculate(num) {
+//   num = num + 2;
+//   return subtractTwo(num);
+// }
 
-// debugger;
-console.log(calculate(4));
-
-// ----------------------------------------------------------------------------------------------------------------------
-
-const weather = (function getWeather(temp) {
-  switch (true) {
-    case temp < 0:
-      return "freezing";
-    case temp < 10:
-      return "cold";
-    case temp < 24:
-      return "cool";
-    default:
-      return "unknown";
-  }
-})(-9);
-console.log(weather);
+// // debugger;
+// console.log(calculate(4));
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-const avar = 32;
-const data = {
-  avar: 2,
-  anonymous: function () {
-    // [32, 2]
-    return [avar, this.avar];
-  },
-  arrow: () => {
-    // [32, undefined]
-    return [avar, this.avar];
-  },
-  v: {
-    anonymous: function () {
-      // [32, undefined]
-      return [avar, this.avar];
-    },
-    arrow: () => {
-      // [32, undefined]
-      return [avar, this.avar];
-    },
-  },
-};
-console.log(data.anonymous());
-console.log(data.arrow());
-console.log(data.v.anonymous());
-console.log(data.v.arrow());
+// const weather = (function getWeather(temp) {
+//   switch (true) {
+//     case temp < 0:
+//       return "freezing";
+//     case temp < 10:
+//       return "cold";
+//     case temp < 24:
+//       return "cool";
+//     default:
+//       return "unknown";
+//   }
+// })(-9);
+// console.log(weather);
 
 // ----------------------------------------------------------------------------------------------------------------------
+
+// const avar = 32;
+// const data = {
+//   avar: 2,
+//   anonymous: function () {
+//     // [32, 2]
+//     return [avar, this.avar];
+//   },
+//   arrow: () => {
+//     // [32, undefined]
+//     return [avar, this.avar];
+//   },
+//   v: {
+//     anonymous: function () {
+//       // [32, undefined]
+//       return [avar, this.avar];
+//     },
+//     arrow: () => {
+//       // [32, undefined]
+//       return [avar, this.avar];
+//     },
+//   },
+// };
+// console.log(data.anonymous());
+// console.log(data.arrow());
+// console.log(data.v.anonymous());
+// console.log(data.v.arrow());
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+// var ten = 10;
+// function hoistTen() {
+//   console.log("ten", ten); // undefined
+//   var ten = 10;
+// }
+// hoistTen();
+
+// let hundred = 100;
+// function hoistHundred() {
+//   console.log("hundred", hundred); // Uncaught ReferenceError: Cannot access 'hundred' before initialization
+//   let hundred = 100;
+// }
+// hoistHundred();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
