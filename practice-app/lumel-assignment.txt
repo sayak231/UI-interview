@@ -1,0 +1,24 @@
+# Frontend Assessment
+
+This task requires you to build the client side of "🎻 VBI Music App" using any javascript framework of your choice. The link to the description of VBI Music App at the end of this page.
+
+The playlist and albums information are to be cached in the local storage
+
+### Deliverables
+
+- URL for the final code of the front-end app in a public Github repository
+- The URL of a deployed version of the app in Netlify or a similar free hosting service mentioned in readme.md
+
+Use the following REST APIs to fetch the data (as you are not expected to build a server in the frontend assessment)
+
+- Albums API:  [https://jsonplaceholder.typicode.com/albums](https://jsonplaceholder.typicode.com/albums)
+- Songs API: [https://jsonplaceholder.typicode.com/photos](https://jsonplaceholder.typicode.com/photos) (The photos API contains the list of songs in each album along with its thumbnail image)
+- The URL Params and queries information can be found in [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
+
+### Assessment Criteria
+
+You will be assessed on the following parameters
+
+- UI/UX Look and Feel
+- Functionality
+- Code Quality

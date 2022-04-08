@@ -46,3 +46,29 @@
   display: flex;
   justify-content: space-around;
 }
+
+#grandparent,
+#parent,
+#child {
+  min-height: 100px;
+  min-width: 100px;
+  border: 1px solid black;
+  padding: 30px;
+}
+
+.parent-relative {
+  position: sticky;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  left: 500px;
+  top: 0;
+}
+
+.child-absolute {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  top: 0;
+}

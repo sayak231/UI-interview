@@ -1,130 +1,130 @@
-// But here closure is formed with the parent
-const a = 32;
+// // But here closure is formed with the parent
+// const a = 32;
 
-function express() {
-  const a = 22;
-  const nest = () => {
-    console.log(a, this.a);
-  };
-  console.log(a, this.a);
-  nest();
-}
-express();
-
-// ----------------------------------------------------------------------------------------------------------------------
-
-function reduceBy1(n) {
-  if (n == 0) return 1;
-  return reduceBy1(n - 1);
-}
-
-console.log(reduceBy1(100000)); //  Recursion call stack exceeds when its greater than 10^5
-
-// Using closure :-
-function reduceBy1Closure(n) {
-  if (n == 0) return 1;
-  return () => reduceBy1Closure(n - 1);
-}
-
-let res = reduceBy1Closure(100000);
-while (typeof res == "function") {
-  res = res();
-}
-console.log(res);
+// function express() {
+//   const a = 22;
+//   const nest = () => {
+//     console.log(a, this.a);
+//   };
+//   console.log(a, this.a);
+//   nest();
+// }
+// express();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-// closure ex
-function makeFunc() {
-  const name = "Mozilla";
-  function displayName() {
-    console.log(name);
-  }
-  return displayName;
-}
+// // function reduceBy1(n) {
+// //   if (n == 0) return 1;
+// //   return reduceBy1(n - 1);
+// // }
 
-const myFunc = makeFunc();
-myFunc();
+// // console.log(reduceBy1(100000)); //  Recursion call stack exceeds when its greater than 10^5
 
-// ----------------------------------------------------------------------------------------------------------------------
+// // Using closure :-
+// function reduceBy1Closure(n) {
+//   if (n == 0) return 1;
+//   return () => reduceBy1Closure(n - 1);
+// }
 
-var arr = [];
-var obj = {};
-var str = "";
-for (var i = 0; i < 1024 * 1024 * 108; i++) {
-  arr.push(1);
-  obj[i] = 1;
-  str += " ";
-}
-
-var value = null;
-function closure() {
-  var last = value;
-  (function () {
-    last;
-  })(last);
-  value = {
-    a: function () {},
-  };
-}
-setInterval(function () {
-  closure();
-  console.log(process.memoryUsage());
-}, 1);
-// Run with node js
+// let res = reduceBy1Closure(100000);
+// while (typeof res == "function") {
+//   res = res();
+// }
+// console.log(res);
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-var num1 = 10,
-  num2 = 1;
-for (var i = num1; i >= num2; i--) {
-  setTimeout(console.log, (num1 - i) * 1000, i);
-}
+// // closure ex
+// function makeFunc() {
+//   const name = "Mozilla";
+//   function displayName() {
+//     console.log(name);
+//   }
+//   return displayName;
+// }
 
-for (var i = num1; i >= num2; i--) {
-  (function (i) {
-    setTimeout(() => console.log(i), (num1 - i) * 1000);
-  })(i);
-}
+// const myFunc = makeFunc();
+// myFunc();
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-// setTimeout closure
-for (var i = 1; i <= 5; i++) {
-  (function () {
-    var j = i;
-    setTimeout(function timer() {
-      console.log(j);
-    }, j * 1000);
-  })();
-}
+// var arr = [];
+// var obj = {};
+// var str = "";
+// for (var i = 0; i < 1024 * 1024 * 107; i++) {
+//   arr.push(1);
+//   obj[i] = 1;
+//   str += " ";
+// }
 
-for (var i = 1; i <= 5; i++) {
-  let j = i;
-  setTimeout(function timer() {
-    console.log(j);
-  }, j * 1000);
-}
+// var value = null;
+// function closure() {
+//   var last = value;
+//   (function () {
+//     last;
+//   })(last);
+//   value = {
+//     a: function () {},
+//   };
+// }
+// setInterval(function () {
+//   closure();
+//   console.log(process.memoryUsage());
+// }, 1);
+// // Run with node js
 
-for (let i = 1; i <= 5; i++) {
-  setTimeout(function timer() {
-    console.log(i);
-  }, i * 1000);
-}
+// ----------------------------------------------------------------------------------------------------------------------
 
-for (var i = 1; i <= 5; i++) {
-  setTimeout(console.log, i * 1000, i);
-}
+// var num1 = 10,
+//   num2 = 1;
+// for (var i = num1; i >= num2; i--) {
+//   setTimeout(console.log, (num1 - i) * 1000, i);
+// }
 
-function big() {
-  setTimeout(() => {
-    console.log("big");
-  }, 1000);
-  for (let i = 0; i < 10000000000; i++) {
-    // do nothing
-  }
-}
-big();
+// for (var i = num1; i >= num2; i--) {
+//   (function (i) {
+//     setTimeout(() => console.log(i), (num1 - i) * 1000);
+//   })(i);
+// }
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+// // setTimeout closure
+// for (var i = 1; i <= 5; i++) {
+//   (function () {
+//     var j = i;
+//     setTimeout(function timer() {
+//       console.log(j);
+//     }, j * 1000);
+//   })();
+// }
+
+// for (var i = 1; i <= 5; i++) {
+//   let j = i;
+//   setTimeout(function timer() {
+//     console.log(j);
+//   }, j * 1000);
+// }
+
+// for (let i = 1; i <= 5; i++) {
+//   setTimeout(function timer() {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// for (var i = 1; i <= 5; i++) {
+//   setTimeout(console.log, i * 1000, i);
+// }
+
+// function big() {
+//   setTimeout(() => {
+//     console.log("big");
+//   }, 1000);
+//   for (let i = 0; i < 10000000000; i++) {
+//     // do nothing
+//   }
+// }
+// big();
 
 // ----------------------------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------------------------
