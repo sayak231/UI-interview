@@ -258,3 +258,29 @@
 //   .then((error) => console.log(error)); // Some error Occurred
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const createPromise = (resolvePromise, message, delay = 0) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(resolvePromise ? resolve : reject, delay, message);
+//   });
+// };
+
+// const pErr = createPromise(false, "Error", 1000);
+// const pFast = createPromise(true, "Success", 2000);
+// const pSlow = createPromise(true, "Success", 5000);
+
+// Promise.all([pErr, pFast, pSlow])
+//   .then((result) => console.log("all --> ", result))
+//   .catch((err) => console.log("err --> ", err));
+
+// Promise.allSettled([pErr, pFast, pSlow])
+//   .then((result) => console.log("allSettled --> ", result))
+//   .catch((err) => console.log("err --> ", err));
+
+// Promise.race([pErr, pFast, pSlow])
+//   .then((result) => console.log("race --> ", result))
+//   .catch((err) => console.log("err --> ", err));
+
+// Promise.any([pErr, pFast, pSlow])
+//   .then((result) => console.log("any --> ", result))
+//   .catch((err) => console.log("err --> ", err));
