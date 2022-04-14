@@ -52,7 +52,7 @@
 //   return total;
 // }
 
-// sum(1, 2, 3); // returns 6
+// console.log(sum(1, 2, 3)); //  6
 
 // // Note: You can't apply array methods on arguments object.
 // // But you can convert into a regular array as below.
@@ -61,15 +61,16 @@
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-// "use strict";
+// "use strict"; // Uncaught ReferenceError: y is not defined
 // function foo() {
 //   let x = (y = 0);
+//   console.log(x); // 0
 //   x++;
 //   y++;
 //   return x;
 // }
 
-// console.log(foo(), typeof x, typeof y);
+// console.log(foo(), typeof x, typeof y); // 1 'undefined' 'number'
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -103,11 +104,16 @@
 
 // == v/s === operator
 
-// console.log(10 == [10]);
-// console.log(10 == [[[[[[[10]]]]]]]);
+// "use strict";
+// console.log(10 == [10]); // true
+// console.log(10 == [[[[[[[10]]]]]]]); // true
 
 // //Equivalent to
-// console.log(10 === Number([10].valueOf().toString())); // 10
+// console.log(10 === Number([10].valueOf().toString())); // true
+
+// console.log([10].valueOf()); // [10]
+// console.log(Number([10].valueOf())); // 10
+// console.log([10].toString()); // "10"
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -212,6 +218,12 @@
 
 // console.log(test); // undefined
 
+// if (true) {
+//   var test = 10;
+// }
+
+// console.log(test); // 10
+
 // ----------------------------------------------------------------------------------------------------------------------
 
 // console.log(null);
@@ -233,27 +245,30 @@
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-// // function to run for 5000ms
-// function takeTime(delay) {
-//   let startTime = Date.now();
-//   let endTime = Date.now();
-//   while (endTime < startTime + delay) {
-//     endTime = Date.now();
-//   }
-// }
-// let func = (i) => console.log(i);
-// // setInterval
-// // In the edge case, if the function always executes longer than delay ms, then the calls will happen without a pause at all.
+// function to run for 5000ms
+function takeTime(delay) {
+  let startTime = Date.now();
+  let endTime = Date.now();
+  while (endTime < startTime + delay) {
+    endTime = Date.now();
+  }
+}
+let func = (i) => console.log(i);
+// setInterval
+// In the edge case, if the function always executes longer than delay ms, then the calls will happen without a pause at all.
 
-// let i = 1;
-// setInterval(function () {
-//   takeTime(5000);
-//   func(i++);
-// }, 1000);
+let i = 1;
+let interId = setInterval(function () {
+  takeTime(3000);
+  func(i++);
+  if (i > 10) {
+    clearInterval(interId);
+  }
+}, 1000);
 
-// // nested setTimeout for same execution as setInterval
-// // takes 5000ms to run the function 'run' inside setTimeout and then waits for 3000ms and runs the function 'run' again
-// // The nested setTimeout guarantees the fixed delay (here 100ms).
+// nested setTimeout for same execution as setInterval
+// takes 5000ms to run the function 'run' inside setTimeout and then waits for 3000ms and runs the function 'run' again
+// The nested setTimeout guarantees the fixed delay (here 100ms).
 // let j = 1;
 // setTimeout(function run() {
 //   takeTime(5000);
@@ -543,3 +558,127 @@
 // console.log(lNum); // 1000000000000
 
 // ----------------------------------------------------------------------------------------------------------------------
+
+// Find the number which occurs odd number of times in an array: [1,2,1,3,4,3,1,2,4,4]
+// o/p: [1,4]
+
+// ----------------------------------------------------------------------------------------------------
+
+// setTimeout(() => {
+//   console.log(1);
+// }, 0);
+// new Promise((res) => res(2)).then((res) => console.log(res));
+
+// // 2
+// // 1
+
+// ----------------------------------------------------------------------------------------------------
+// setTimeout(() => {
+//   console.log(1);
+// }, 0);
+// fetch("https://jsonplaceholder.typicode.com/todos/1")
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
+
+// 1
+// {userId: 1, id: 1, title: 'delectus aut autem', completed: false}
+
+// ----------------------------------------------------------------------------------------------------
+
+// {
+//   var a = "abc";
+//   console.log(a); // abc
+// }
+// console.log(a); // abc
+
+// ----------------------------------------------------------------------------------------------------
+
+// {
+//   var b = "abc";
+//   let b = "pqr"; // Uncaught SyntaxError: Identifier 'b' has already been declared
+//   console.log(b);
+// }
+// console.log(b);
+// ----------------------------------------------------------------------------------------------------
+
+// const promise = new Promise((resolve, reject) => {
+//   console.log(1);
+//   setTimeout(() => {
+//     console.log("timerStart");
+//     resolve("success");
+//     console.log("timerEnd");
+//   }, 0);
+//   console.log(2);
+// });
+// promise.then((res) => {
+//   console.log(res);
+// });
+// console.log(4);
+
+// ----------------------------------------------------------------------------------------------------
+
+// var x = 43;
+// (function random() {
+//   x++;
+//   console.log("x -->", x); // x --> NaN
+//   var x = 21;
+// })();
+
+// var x = 43;
+// (function random() {
+//   console.log("x -->", x); // x --> undefined
+//   var x = 21;
+// })();
+
+// ----------------------------------------------------------------------------------------------------
+
+// var a = {
+//   init: function () {
+//     console.log(this);
+//   },
+// };
+
+// var b = {
+//   init: () => {
+//     console.log(this);
+//   },
+// };
+// a.init(); // {init: ƒ}
+// b.init(); // Window
+
+// var a = {
+//   init: function () {
+//     console.log(this);
+//   },
+// };
+
+// var b = {
+//   x: 2,
+//   init: () => {
+//     console.log(b);
+//   },
+// };
+// a.init(); // {init: ƒ}
+// b.init(); // {x: 2, init: ƒ}
+
+// var a = {
+//   init: function () {
+//     console.log(this);
+//   },
+// };
+
+// var b = {
+//   x: 2,
+//   init: () => {
+//     console.log(this);
+//   },
+// };
+// a.init(); // {init: ƒ}
+// a.init.call(b); // {x: 2, init: ƒ}
+// a.init.apply(b); // {x: 2, init: ƒ}
+// a.init.bind(b)(); // {x: 2, init: ƒ}
+// b.init.call(b); // Window
+// b.init.apply(b); // Window
+// b.init.bind(b)(); // Window
+
+// ----------------------------------------------------------------------------------------------------
